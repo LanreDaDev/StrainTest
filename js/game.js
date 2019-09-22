@@ -9,28 +9,28 @@ let availableQuesions = [];
 
 let questions = [
     {
-        question: "Inside which HTML element do we put the JavaScript??",
-        choice1: "<script>",
-        choice2: "<javascript>",
-        choice3: "<js>",
-        choice4: "<scripting>",
+        question: "What kind of high do you prefer?",
+        choice1: "energetic & talkative",
+        choice2: "Calm & Relaxing",
+        choice3: "a heathy mix of the choice 1 and 2",
+        choice4: "Therapeutic sort of high",
         answer: 1
     },
     {
         question:
-            "What is the correct syntax for referring to an external script called 'xxx.js'?",
-        choice1: "<script href='xxx.js'>",
-        choice2: "<script name='xxx.js'>",
-        choice3: "<script src='xxx.js'>",
-        choice4: "<script file='xxx.js'>",
+            "Do ypu have issues with sleep?",
+        choice1: "Often",
+        choice2: "Sometimes",
+        choice3: "Not Often",
+        choice4: "Never",
         answer: 3
     },
     {
-        question: " How do you write 'Hello World' in an alert box?",
-        choice1: "msgBox('Hello World');",
-        choice2: "alertBox('Hello World');",
-        choice3: "msg('Hello World');",
-        choice4: "alert('Hello World');",
+        question: " When do you usually smoke your first bowl?",
+        choice1: "Daytime",
+        choice2: "Evening",
+        choice3: "No Preference",
+        choice4: "When Im in pain",
         answer: 4
     }
 ];

@@ -39,6 +39,7 @@ At the end of the quiz, our algorithm will attempt to find you a specific strain
              "paranoid": 68,
              "hungry": 63
          },
+         "pointCounter":0
         
       },
 
@@ -47,20 +48,22 @@ At the end of the quiz, our algorithm will attempt to find you a specific strain
          "Name": "Ice Wreck",
          "pro": {
             "relaxed": 100,
-             "happy": 84,
-             "sleepy": 74,
-             "uplifted": 68,
-             "hungry": 63,
+             "happy": 84.678,
+             "sleepy": 74.333,
+             "uplifted": 68.423,
+             "hungry": 63.332,
              "insomnia": 100,
-             "pain": 47
+             "pain": 47.23323
          },
          "con": {
             "dryEyes": 100,
-             "dry Mouth": 96,
-             "headaches": 79,
-             "paranoid": 68,
-             "hungry": 63
+             "dry Mouth": 96.32423,
+             "headaches": 79.54646764,
+             "paranoid": 68.3543645,
+             "hungry": 63.534242
          },
+         "pointCounter":0
+
         
       }
 
@@ -99,3 +102,20 @@ Decided not to give answer in sections, it would be to much work for little util
 Considering adding two other properties into the json file. This property would contain an array of words that users have used to describe the strain. As with the earlier property they will be a pro and a con version and depending on with section they would be assigned either a +5 or a _-5_
 
 Perhaps it would be a page with a list of effects, medical and negative word and the user will be told to pick a limited amount of words that correlate to the desired effect that they are looking for or trying to avoid.
+
+### What a typical question object looks like
+```JS
+ {question: "What kind of high do you prefer?",
+        choice1: "energetic & talkative",
+        choice2: "Calm & Relaxing",
+        choice3: "a healthy mix of the choice 1 and 2",
+        choice4: "Therapeutic sort of high",
+        tags: {
+            hungry: 1,
+            happy: 2,
+            pain: 3,
+            relaxed: 4
+        },
+        type: "general"
+        }
+```

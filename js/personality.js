@@ -1,11 +1,16 @@
+// Store the question id in a const
 const question = document.getElementById("question");
+
+// Store the choices id in a const 
 const choices = Array.from(document.getElementsByClassName("choice-text"));
 
-let currentQuestion = {};
-let acceptingAnswers = false;
-let score = 0;
+
+// QUESTIONS
+const MAX_QUESTIONS = 3;
 let questionCounter = 0;
-let availableQuesions = [];
+let acceptingAnswers = false;
+
+
 
 let questions = [
     {
@@ -41,15 +46,12 @@ let questions = [
     }
 ];
 
-//CONSTANTS
-const CORRECT_BONUS = 10;
-const MAX_QUESTIONS = 3;
 
 startGame = () => {
     questionCounter = 0;
-    score = 0;
     availableQuesions = [...questions];
     console.log(availableQuesions);
+
     getNewQuestion();
 };
 
@@ -62,6 +64,10 @@ getNewQuestion = () => {
     const questionIndex = Math.floor(Math.random() * availableQuesions.length);
     currentQuestion = availableQuesions[questionIndex];
     question.innerText = currentQuestion.question;
+    if (currentQuestion.) {
+
+    }
+
 
     choices.forEach(choice => {
         const number = choice.dataset["number"];
@@ -71,18 +77,38 @@ getNewQuestion = () => {
     availableQuesions.splice(questionIndex, 1);
     console.log(availableQuesions);
     acceptingAnswers = true;
-};
 
-choices.forEach(choice => {
-    choice.addEventListener("click", e => {
-        if (!acceptingAnswers) return;
+    choices.forEach(choice => {
+        choice.addEventListener("click", e => {
+            if (!acceptingAnswers) return;
 
-        acceptingAnswers = false;
-        const selectedChoice = e.target;
-        const selectedAnswer = selectedChoice.dataset["number"];
-        console.log(selectedAnswer);
-        getNewQuestion();
+            acceptingAnswers = false;
+            const selectedChoice = e.target;
+            const selectedAnswer = selectedChoice.dataset["number"];
+            console.log(selectedAnswer);
+            getNewQuestion();
+        });
     });
-});
+
+}
 
 startGame();
+
+// Change the style of the question page based on the question type
+
+// Create a foreach loop that stores each choices
+
+// Correlate each choice with a tag
+
+// Write a function that ranks the strains score for that tag
+
+// Give the appropriate strain the score it deserves
+
+// Get the highest scoring strain and store its id in a local storage
+
+// Result Page
+// Get the highest scoring strain from local storage
+
+
+
+// Present the strain, its description, it's highest pros and "Where to buy" links in an HTML Page

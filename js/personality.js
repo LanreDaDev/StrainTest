@@ -14,52 +14,86 @@ let questionCounter = 0;
 let acceptingAnswers = false;
 
 
+// Strains
 
+let strains = [
+    {
+        id: "01",
+        name: "King Kong",
+        pro: {
+            relaxed: 100,
+            happy: 84,
+            sleepy: 74,
+            uplifted: 68,
+            hungry: 63,
+            insomnia: 100,
+            pain: 47
+        },
+        con: {
+            dryEyes: 100,
+            dryMouth: 96,
+            headaches: 79,
+            paranoid: 68,
+            hungry: 63
+        },
+        pointCounter: 0
+
+    },
+
+    {
+        id: "02",
+        name: "Ice Wreck",
+        pro: {
+            relaxed: 100,
+            happy: 84.678,
+            sleepy: 74.333,
+            uplifted: 68.423,
+            hungry: 63.332,
+            insomnia: 100,
+            pain: 47.23323
+        },
+        con: {
+            dryEyes: 100,
+            dryMouth: 96.32423,
+            headaches: 79.54646764,
+            paranoid: 68.3543645,
+            hungry: 63.534242
+        },
+        pointCounter: 0
+
+
+    }
+]
 let questions = [
     {
         question: "What kind of high do you prefer?",
-        choice1: "energetic & talkative",
-        choice2: "Calm & Relaxing",
-        choice3: "a heathy mix of the choice 1 and 2",
-        choice4: "Therapeutic sort of high",
+        choice0: "energetic & talkative",
+        choice1: "Calm & Relaxing",
+        choice2: "a heathy mix of the choice 1 and 2",
+        choice3: "Therapeutic sort of high",
         answer: 1,
-        tags: {
-            hungry: 1,
-            happy: 2,
-            pain: 3,
-            relaxed: 4
-        },
+        tags: ["hungry", "happy", "pain", "relaxed"],
         type: "yellow"
     },
     {
         question:
             "Do ypu have issues with sleep?",
-        choice1: "Often",
-        choice2: "Sometimes",
-        choice3: "Not Often",
-        choice4: "Never",
+        choice0: "Often",
+        choice1: "Sometimes",
+        choice2: "Not Often",
+        choice3: "Never",
         answer: 3,
-        tags: {
-            hungry: 1,
-            happy: 2,
-            pain: 3,
-            relaxed: 4
-        },
+        tags: ["hungry", "happy", "pain", "relaxed"],
         type: "red"
     },
     {
         question: " When do you usually smoke your first bowl?",
-        choice1: "Daytime",
-        choice2: "Evening",
-        choice3: "No Preference",
-        choice4: "When Im in pain",
+        choice0: "Daytime",
+        choice1: "Evening",
+        choice2: "No Preference",
+        choice3: "When Im in pain",
         answer: 4,
-        tags: {
-            hungry: 1,
-            happy: 2,
-            pain: 3,
-            relaxed: 4
-        },
+        tags: ["hungry", "happy", "pain", "relaxed"],
         type: "green"
     }
 ];
@@ -68,7 +102,10 @@ let questions = [
 startGame = () => {
     questionCounter = 0;
     availableQuesions = [...questions];
+    availableStrains = [...strains];
     console.log(availableQuesions);
+    console.log(availableStrains);
+
 
     getNewQuestion();
 };
@@ -136,7 +173,7 @@ getNewQuestion = () => {
 
 
     availableQuesions.splice(questionIndex, 1);
-    console.log(availableQuesions);
+    // console.log(availableQuesions);
     acceptingAnswers = true;
 
     choices.forEach(choice => {
@@ -146,8 +183,47 @@ getNewQuestion = () => {
             acceptingAnswers = false;
             const selectedChoice = e.target;
             const selectedAnswer = selectedChoice.dataset["number"];
+            const rankingObject = {};
 
-            console.log(selectedAnswer);
+
+            function userTagChoice() {
+                for (let i = 0; i < currentQuestion.tags.length; i++) {
+                    if (selectedAnswer == i) {
+                        const tagChoice = currentQuestion.tags[i]
+                        const currentStrain = availableStrains[i]
+                        const currentPro = currentStrain.pro
+
+                        console.log(currentPro);
+
+
+                        for (let i = 0; i < availableStrains.length; i++) {
+
+                            for (effect in currentPro) {
+                                if (tagChoice == effect) {
+                                    rankingObject[currentPro[effect]] = Object.values(currentPro[effect])
+                                    console.log(rankingObject);
+
+
+
+
+                                }
+                            }
+
+                        }
+                        return tagChoice;
+
+                    }
+
+                }
+            }
+
+            const tagChoicer = userTagChoice();
+            console.log(tagChoicer);
+
+
+
+
+            // console.log(selectedAnswer);
             getNewQuestion();
         });
     });

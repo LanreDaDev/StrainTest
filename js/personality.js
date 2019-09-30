@@ -103,7 +103,6 @@ startGame = () => {
 };
 
 getNewQuestion = () => {
-<<<<<<< HEAD
   if (availableQuesions.length === 0 || questionCounter >= MAX_QUESTIONS) {
     //go to the end page
     return window.location.assign("/end.html");
@@ -142,45 +141,6 @@ getNewQuestion = () => {
     for (let i = 0; i < allChoice.length; i++) {
       allChoice[i].style.backgroundColor = "#FF4845";
       allChoiceCont[i].style.border = "0.1rem solid rgba(255, 72, 69, 0.25)";
-=======
-    if (availableQuesions.length <= 0 || questionCounter > MAX_QUESTIONS) {
-        //go to the end page
-        return window.location.assign("/end.html");
-    }
-    questionCounter++;
-    console.log(availableQuesions.length);
-    console.log(questionCounter);
-
-
-    
-    const questionIndex = Math.floor(Math.random() * availableQuesions.length);
-    currentQuestion = availableQuesions[questionIndex];
-    question.innerText = currentQuestion.question;
-
-
-
-    choices.forEach(choice => {
-        const number = choice.dataset["number"];
-        choice.innerText = currentQuestion["choice" + number];
-    });
-
-    // Change the style of the question page based on the question type
-
-
-    if (currentQuestion.type == "yellow") {
-        var allChoice = document.getElementsByClassName('choice-prefix');
-        let allChoiceCont = document.getElementsByClassName('choice-container')
-        bodyTag[0].style.backgroundImage = 'url("img/general.svg")'
-        bodyTag[0].style.backgroundRepeat = 'no-repeat'
-        bodyTag[0].style.backgroundPosition = 'right bottom'
-
-
-        for (let i = 0; i < allChoice.length; i++) {
-            allChoice[i].style.backgroundColor = '#FFD700'
-            allChoiceCont[i].style.border = '0.1rem solid rgba(255, 217, 0, 0.25)'
-
-        }
->>>>>>> 4e13ce1f058501c5d04576604ca639e196a6c4d1
     }
   }
   if (currentQuestion.type == "green") {

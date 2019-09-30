@@ -5,12 +5,11 @@ const question = document.getElementById("question");
 const choices = Array.from(document.getElementsByClassName("choice-text"));
 const bodyTag = document.getElementsByTagName("body");
 
-console.log(bodyTag);
-
 // QUESTIONS
-const MAX_QUESTIONS = 3;
+
 let questionCounter = 0;
 let acceptingAnswers = false;
+let availableQuesions = [];
 
 // Strains
 
@@ -92,12 +91,12 @@ let questions = [
   }
 ];
 
+const MAX_QUESTIONS = 3;
+
 startGame = () => {
   questionCounter = 0;
   availableQuesions = [...questions];
   availableStrains = [...strains];
-  console.log(availableQuesions);
-  console.log(availableStrains);
 
   getNewQuestion();
 };
@@ -116,16 +115,18 @@ getNewQuestion = () => {
     const number = choice.dataset["number"];
     choice.innerText = currentQuestion["choice" + number];
   });
+  availableQuesions.splice(questionIndex, 1);
+  // console.log(availableQuesions);
+  acceptingAnswers = true;
 
   // Change the style of the question page based on the question type
 
   if (currentQuestion.type == "yellow") {
-    var allChoice = document.getElementsByClassName("choice-prefix");
-    let allChoiceCont = document.getElementsByClassName("choice-container");
+    const allChoice = document.getElementsByClassName("choice-prefix");
+    const allChoiceCont = document.getElementsByClassName("choice-container");
     bodyTag[0].style.backgroundImage = 'url("img/general.svg")';
     bodyTag[0].style.backgroundRepeat = "no-repeat";
     bodyTag[0].style.backgroundPosition = "right bottom";
-
     for (let i = 0; i < allChoice.length; i++) {
       allChoice[i].style.backgroundColor = "#FFD700";
       allChoiceCont[i].style.border = "0.1rem solid rgba(255, 217, 0, 0.25)";
@@ -155,55 +156,48 @@ getNewQuestion = () => {
       allChoiceCont[i].style.border = "0.1rem solid rgba(92, 219, 149, 0.25)";
     }
   }
+};
+choices.forEach(choice => {
+  choice.addEventListener("click", e => {
+    if (!acceptingAnswers) return;
 
-  availableQuesions.splice(questionIndex, 1);
-  // console.log(availableQuesions);
-  acceptingAnswers = true;
+    acceptingAnswers = false;
+    const selectedChoice = e.target;
+    const selectedAnswer = selectedChoice.dataset["number"];
+    const rankingObject = {};
+    getNewQuestion();
 
-  choices.forEach(choice => {
-    choice.addEventListener("click", e => {
-      if (!acceptingAnswers) return;
+    function userTagChoice() {
+      for (let i = 0; i < currentQuestion.tags.length; i++) {
+        if (selectedAnswer == i) {
+          const tagChoice = currentQuestion.tags[i];
+          const currentStrain = availableStrains[i];
+          const currentPro = currentStrain.pro;
+          // HEY JIM, this LINE it says pro is undefined even though it is in my object in line 23 and 46
 
-      acceptingAnswers = false;
-      const selectedChoice = e.target;
-      const selectedAnswer = selectedChoice.dataset["number"];
-      const rankingObject = {};
+          console.log(currentStrain.pro);
 
-      function userTagChoice() {
-        for (let i = 0; i < currentQuestion.tags.length; i++) {
-          if (selectedAnswer == i) {
-            const tagChoice = currentQuestion.tags[i];
-            const currentStrain = availableStrains[i];
-            const currentPro = currentStrain.pro;
-            // HEY JIM, this LINE it says pro is undefined even though it is in my object in line 23 and 46
-
-            console.log(currentPro);
-
-            for (let i = 0; i < availableStrains.length; i++) {
-              for (effect in currentPro) {
-                if (tagChoice == effect) {
-                  rankingObject[currentPro[effect]] = Object.values(
-                    currentPro[effect]
-                  );
-                  console.log(rankingObject);
-                }
+          for (let i = 0; i < availableStrains.length; i++) {
+            for (effect in currentPro) {
+              if (tagChoice == effect) {
+                rankingObject[currentPro[effect]] = Object.values(
+                  currentPro[effect]
+                );
+                console.log(rankingObject);
               }
             }
-            return tagChoice;
           }
+          return tagChoice;
         }
       }
+    }
 
-      const tagChoicer = userTagChoice();
-      console.log(tagChoicer);
+    const tagChoicer = userTagChoice();
+    console.log(tagChoicer);
 
-      // console.log(selectedAnswer);
-      getNewQuestion();
-    });
+    console.log(selectedAnswer);
   });
-};
-
-startGame();
+});
 
 // Create a foreach loop that stores each choices
 const userChoice = [...choices];
@@ -219,3 +213,4 @@ const userChoice = [...choices];
 // Get the highest scoring strain from local storage
 
 // Present the strain, its description, it's highest pros and "Where to buy" links in an HTML Page
+startGame();

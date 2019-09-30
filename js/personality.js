@@ -74,11 +74,16 @@ startGame = () => {
 };
 
 getNewQuestion = () => {
-    if (availableQuesions.length === 0 || questionCounter >= MAX_QUESTIONS) {
+    if (availableQuesions.length <= 0 || questionCounter > MAX_QUESTIONS) {
         //go to the end page
         return window.location.assign("/end.html");
     }
     questionCounter++;
+    console.log(availableQuesions.length);
+    console.log(questionCounter);
+
+
+    
     const questionIndex = Math.floor(Math.random() * availableQuesions.length);
     currentQuestion = availableQuesions[questionIndex];
     question.innerText = currentQuestion.question;

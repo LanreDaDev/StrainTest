@@ -113,7 +113,7 @@ let questions = [
     type: "yellow"
   },
   {
-    question: "Do ypu have issues with sleep?",
+    question: "Do you have issues with sleep?",
     choice0: "Often",
     choice1: "Sometimes",
     choice2: "Not Often",
@@ -224,38 +224,104 @@ choices.forEach(choice => {
       const fifth = [];
 
       availableStrains.forEach(strain => {
-        const strainPro = strain.pro;
 
-        for (effect in strain.pro) {
+
+        // for (effect in strain.pro) {
+        //   if (tagChoice === effect) {
+        //     const effectValue = Object.getOwnPropertyDescriptor(
+        //       strain.pro,
+        //       effect
+        //     );
+        //     var currentStrainName = strain.name;
+
+        //     choiceStrain[currentStrainName] = effectValue.value;
+        //   }
+        // }
+        let sort = sorted(strainRanking);
+        let strainRanking = strainRank(strain);
+
+        console.log(sort);
+        
+        
+      // strainName = sortable[sortable.length - 1][0];
+
+
+      //   console.log(strainName);
+        for (let i = 0; i < sort.length; i++) {
+          const element = sort[i][0];
+          if (strain == element) {
+            strain.pointCounter += 3;
+            console.log(strain);
+
+          }
+          
+          
+        }
+        // console.log(strain.pointCounter);
+      
+
+
+      });
+      // console.log(sortable);
+      
+
+
+      function sorted(strainArray){
+        var sortable = [];
+
+        for (var cStrain in strainArray) {
+          sortable.push([cStrain, choiceStrain[cStrain]]);
+        }
+         sortable.sort(function(a, b) {
+        return a[1] - b[1];
+      });
+
+      return sortable
+
+      }
+
+      function strainRank(strainObject){
+        for (effect in strainObject.pro) {
           if (tagChoice === effect) {
             const effectValue = Object.getOwnPropertyDescriptor(
-              strain.pro,
+              strainObject.pro,
               effect
             );
             var currentStrainName = strain.name;
 
             choiceStrain[currentStrainName] = effectValue.value;
           }
+          return choiceStrain;
         }
-      });
-      var sortable = [];
-      var strainName;
-      for (var cStrain in choiceStrain) {
-        sortable.push([cStrain, choiceStrain[cStrain]]);
+
       }
-      sortable.sort(function(a, b) {
-        return a[1] - b[1];
-      });
+      
+      // var strainName;
+      // for (var cStrain in choiceStrain) {
+      //   sortable.push([cStrain, choiceStrain[cStrain]]);
+      // }
+     
 
-      strainName = sortable[sortable.length - 1][0];
 
-      console.log(strainName);
-      console.log(sortable);
+
+
+      // for (let i = 0; i < sortable.length; i++) {
+      //   const element = sortable[i][0];
+      //   if (strain == element) {
+      //     strain.pointCounter += 3;
+      //   }
+      //   console.log(strain.pointCounter);
+        
+        
+      // }
+      
+
+      
     }
 
     userTagChoice();
 
-    // console.log(selectedAnswer);
+    console.log(selectedAnswer);
   });
 });
 

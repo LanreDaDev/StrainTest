@@ -56,6 +56,49 @@ let strains = [
       hungry: 63.534242
     },
     pointCounter: 0
+  },
+  {
+    id: "03",
+    name: "White Bubblegum",
+    pro: {
+      aroused: 100,
+      energetic: 100,
+      euphoric: 100,
+      creative: 80,
+      giggly: 40,
+      depression: 100,
+      headaches: 100,
+      insomnia: 100,
+      stress: 100
+    },
+    con: {
+      dryMouth: 100
+    },
+    pointCounter: 0
+  },
+  {
+    id: "04",
+    name: "Granddaddy Purple",
+    pro: {
+      relaxed: 100,
+      sleepy: 74.93,
+      happy: 67.02,
+      euphoric: 66.41,
+      hungry: 43.56,
+      stress: 100,
+      pain: 87.86,
+      insomnia: 87.1,
+      depression: 66.55,
+      lackAppetite: 41.39
+    },
+    con: {
+      dryEyes: 55.15,
+      dryMouth: 100,
+      dizzy: 22.81,
+      anxious: 22.64,
+      paranoid: 21.28
+    },
+    pointCounter: 0
   }
 ];
 let questions = [
@@ -76,7 +119,7 @@ let questions = [
     choice2: "Not Often",
     choice3: "Never",
     answer: 3,
-    tags: ["hungry", "happy", "pain", "relaxed"],
+    tags: ["insomnia", "depression", "pain", "lackAppetite"],
     type: "red"
   },
   {
@@ -86,7 +129,7 @@ let questions = [
     choice2: "No Preference",
     choice3: "When Im in pain",
     answer: 4,
-    tags: ["hungry", "happy", "pain", "relaxed"],
+    tags: ["anxious", "sleepy", "dryEyes", "dizzy"],
     type: "green"
   }
 ];
@@ -168,40 +211,57 @@ choices.forEach(choice => {
     getNewQuestion();
 
     function userTagChoice() {
-      for (let i = 0; i < currentQuestion.tags.length; i++) {
-        if (selectedAnswer == i) {
-          const tagChoice = currentQuestion.tags[i];
-          const currentStrain = availableStrains[i];
-          const currentPro = currentStrain.pro;
-          // HEY JIM, this LINE it says pro is undefined even though it is in my object in line 23 and 46
+      // Correlate each choice with a tag
 
-          console.log(currentStrain.pro);
+      const tagChoice = currentQuestion.tags[selectedAnswer];
+      const choiceStrain = [];
 
-          for (let i = 0; i < availableStrains.length; i++) {
-            for (effect in currentPro) {
-              if (tagChoice == effect) {
-                rankingObject[currentPro[effect]] = Object.values(
-                  currentPro[effect]
-                );
-                console.log(rankingObject);
-              }
-            }
+      // Scoring function
+      const first = [];
+      const second = [];
+      const third = [];
+      const fourth = [];
+      const fifth = [];
+
+      availableStrains.forEach(strain => {
+        const strainPro = strain.pro;
+
+        for (effect in strain.pro) {
+          if (tagChoice === effect) {
+            const effectValue = Object.getOwnPropertyDescriptor(
+              strain.pro,
+              effect
+            );
+
+            choiceStrain.push(effectValue.value);
+            choiceStrain.push(strain.name + " " + effectValue.value);
+            choiceStrain.sort(function(a, b) {
+              return a - b;
+            });
+
+            choiceStrain.forEach(e => {});
+
+            // console.log(effectValue.value);
+            // console.log(strain.name);
+            console.log(choiceStrain);
+            // console.log(choiceStrainName);
+
+            // strain.pointCounter += 10;
+            // console.log(strain, strain.pointCounter);
           }
-          return tagChoice;
         }
-      }
+      });
     }
 
-    const tagChoicer = userTagChoice();
-    console.log(tagChoicer);
+    userTagChoice();
 
-    console.log(selectedAnswer);
+    // console.log(selectedAnswer);
   });
 });
 
 // Create a foreach loop that stores each choices
-const userChoice = [...choices];
-// Correlate each choice with a tag
+
+// const userChoice = [...choices];
 
 // Write a function that ranks the strains score for that tag
 

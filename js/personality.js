@@ -200,6 +200,8 @@ getNewQuestion = () => {
     }
   }
 };
+
+
 choices.forEach(choice => {
   choice.addEventListener("click", e => {
     if (!acceptingAnswers) return;
@@ -207,7 +209,6 @@ choices.forEach(choice => {
     acceptingAnswers = false;
     const selectedChoice = e.target;
     const selectedAnswer = selectedChoice.dataset["number"];
-    const rankingObject = {};
     getNewQuestion();
 
     function userTagChoice() {
@@ -232,8 +233,9 @@ choices.forEach(choice => {
           }
         }
 
-        const sort = sorted(choiceStrain); // Sorts the Object in a ascending
+        const sort = sorted(choiceStrain); // Sorts the Object by its numerical value in a ascending array of arrays
 
+        // if the current strain has the same name as the name in the sort array then it will increase the pointCounter of that strain 
         for (let i = 0; i < sort.length; i++) {
           const element = sort[i][0];
           if (strain.name == element) {
@@ -245,9 +247,8 @@ choices.forEach(choice => {
       
       
       });
-      console.log(strains);
-
-      
+     
+    
 
       function sorted(strainArray){
         var sortable = [];
@@ -271,22 +272,36 @@ choices.forEach(choice => {
       }
       
 
-      
-      
+      let max = 0
+      var maxName = [];
+      availableStrains.forEach(strain => {
+        if( strain.pointCounter >= max){
+          max = strain.pointCounter;
+          maxName.push(strain.name);
+
+        }
+
+      })      
+
       console.log(tagChoice);
+      console.log(max, maxName);
 
       
     }
 
     userTagChoice();
+    
 
     console.log(selectedAnswer);
+   
+  console.log(strains);
     
   });
+
+ 
 });
 
 
-// Write a function that ranks the strains score for that tag
 
 // Give the appropriate strain the score it deserves
 

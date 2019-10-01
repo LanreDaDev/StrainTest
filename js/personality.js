@@ -216,16 +216,9 @@ choices.forEach(choice => {
       const tagChoice = currentQuestion.tags[selectedAnswer];
       const choiceStrain = {};
 
-
-      // Scoring function
-      const first = [];
-      const second = [];
-      const third = [];
-      const fourth = [];
-      const fifth = [];
-
       availableStrains.forEach(strain => {
 
+// saves all strain that has the choosen effect and their value (The value will be used create points tier where your rank of attribute will determine the points --- See Readme )
 
         for (effect in strain.pro) {
           if (tagChoice === effect) {
@@ -241,7 +234,6 @@ choices.forEach(choice => {
 
         const sort = sorted(choiceStrain);
 
-        console.log(sort);
         for (let i = 0; i < sort.length; i++) {
           const element = sort[i][0];
           if (strain.name == element) {
@@ -250,32 +242,17 @@ choices.forEach(choice => {
           
           
         }
-
-        
-        
-      // strainName = sortable[sortable.length - 1][0];
-
-
-        // console.log(strainName);
-       
-        // console.log(strain.pointCounter);
-      
       
       
       });
       console.log(strains);
 
-
-    
-      // console.log(sortable);
       
 
       function sorted(strainArray){
         var sortable = [];
-        console.log(strainArray);
 
         for (var cStrain in strainArray) {
-          console.log(cStrain);
           
 
           const strainNum = Object.getOwnPropertyDescriptor(
@@ -294,41 +271,7 @@ choices.forEach(choice => {
       }
       
 
-      // function strainRank(strainObject){
-
-      //   for (effect in strainObject.pro) {
-      //     if (tagChoice === effect) {
-      //       const effectValue = Object.getOwnPropertyDescriptor(
-      //         strainObject.pro,
-      //         effect
-      //       );
-      //       var currentStrainName = strainObject.name;
-
-      //       choiceStrain[currentStrainName] = effectValue.value;
-      //     }
-      //   }
-      //   return choiceStrain;
-
-      // }
       
-      // var strainName;
-      // for (var cStrain in choiceStrain) {
-      //   sortable.push([cStrain, choiceStrain[cStrain]]);
-      // }
-     
-
-
-
-
-      // for (let i = 0; i < sortable.length; i++) {
-      //   const element = sortable[i][0];
-      //   if (strain == element) {
-      //     strain.pointCounter += 3;
-      //   }
-      //   console.log(strain.pointCounter);
-        
-        
-      // }
       
       console.log(tagChoice);
 
@@ -342,9 +285,6 @@ choices.forEach(choice => {
   });
 });
 
-// Create a foreach loop that stores each choices
-
-// const userChoice = [...choices];
 
 // Write a function that ranks the strains score for that tag
 

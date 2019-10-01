@@ -216,6 +216,7 @@ choices.forEach(choice => {
       const tagChoice = currentQuestion.tags[selectedAnswer];
       const choiceStrain = {};
 
+
       // Scoring function
       const first = [];
       const second = [];
@@ -226,75 +227,89 @@ choices.forEach(choice => {
       availableStrains.forEach(strain => {
 
 
-        // for (effect in strain.pro) {
-        //   if (tagChoice === effect) {
-        //     const effectValue = Object.getOwnPropertyDescriptor(
-        //       strain.pro,
-        //       effect
-        //     );
-        //     var currentStrainName = strain.name;
-
-        //     choiceStrain[currentStrainName] = effectValue.value;
-        //   }
-        // }
-        let sort = sorted(strainRanking);
-        let strainRanking = strainRank(strain);
-
-        console.log(sort);
-        
-        
-      // strainName = sortable[sortable.length - 1][0];
-
-
-      //   console.log(strainName);
-        for (let i = 0; i < sort.length; i++) {
-          const element = sort[i][0];
-          if (strain == element) {
-            strain.pointCounter += 3;
-            console.log(strain);
-
-          }
-          
-          
-        }
-        // console.log(strain.pointCounter);
-      
-
-
-      });
-      // console.log(sortable);
-      
-
-
-      function sorted(strainArray){
-        var sortable = [];
-
-        for (var cStrain in strainArray) {
-          sortable.push([cStrain, choiceStrain[cStrain]]);
-        }
-         sortable.sort(function(a, b) {
-        return a[1] - b[1];
-      });
-
-      return sortable
-
-      }
-
-      function strainRank(strainObject){
-        for (effect in strainObject.pro) {
+        for (effect in strain.pro) {
           if (tagChoice === effect) {
             const effectValue = Object.getOwnPropertyDescriptor(
-              strainObject.pro,
+              strain.pro,
               effect
             );
             var currentStrainName = strain.name;
 
             choiceStrain[currentStrainName] = effectValue.value;
           }
-          return choiceStrain;
         }
 
+        const sort = sorted(choiceStrain);
+
+        console.log(sort);
+        for (let i = 0; i < sort.length; i++) {
+          const element = sort[i][0];
+          if (strain.name == element) {
+            strain.pointCounter += 3;  
+          }
+          
+          
+        }
+
+        
+        
+      // strainName = sortable[sortable.length - 1][0];
+
+
+        // console.log(strainName);
+       
+        // console.log(strain.pointCounter);
+      
+      
+      
+      });
+      console.log(strains);
+
+
+    
+      // console.log(sortable);
+      
+
+      function sorted(strainArray){
+        var sortable = [];
+        console.log(strainArray);
+
+        for (var cStrain in strainArray) {
+          console.log(cStrain);
+          
+
+          const strainNum = Object.getOwnPropertyDescriptor(
+            strainArray,
+            cStrain
+          );
+          sortable.push([cStrain, strainNum.value]);
+        }
+         sortable.sort(function(a, b) {
+        return a[1] - b[1];
+      });
+
+      
+      return sortable
+
       }
+      
+
+      // function strainRank(strainObject){
+
+      //   for (effect in strainObject.pro) {
+      //     if (tagChoice === effect) {
+      //       const effectValue = Object.getOwnPropertyDescriptor(
+      //         strainObject.pro,
+      //         effect
+      //       );
+      //       var currentStrainName = strainObject.name;
+
+      //       choiceStrain[currentStrainName] = effectValue.value;
+      //     }
+      //   }
+      //   return choiceStrain;
+
+      // }
       
       // var strainName;
       // for (var cStrain in choiceStrain) {
@@ -315,6 +330,7 @@ choices.forEach(choice => {
         
       // }
       
+      console.log(tagChoice);
 
       
     }
@@ -322,6 +338,7 @@ choices.forEach(choice => {
     userTagChoice();
 
     console.log(selectedAnswer);
+    
   });
 });
 

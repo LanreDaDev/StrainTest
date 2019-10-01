@@ -214,7 +214,7 @@ choices.forEach(choice => {
       // Correlate each choice with a tag
 
       const tagChoice = currentQuestion.tags[selectedAnswer];
-      const choiceStrain = [];
+      const choiceStrain = {};
 
       // Scoring function
       const first = [];
@@ -232,25 +232,25 @@ choices.forEach(choice => {
               strain.pro,
               effect
             );
+            var currentStrainName = strain.name;
 
-            choiceStrain.push(effectValue.value);
-            choiceStrain.push(strain.name + " " + effectValue.value);
-            choiceStrain.sort(function(a, b) {
-              return a - b;
-            });
-
-            choiceStrain.forEach(e => {});
-
-            // console.log(effectValue.value);
-            // console.log(strain.name);
-            console.log(choiceStrain);
-            // console.log(choiceStrainName);
-
-            // strain.pointCounter += 10;
-            // console.log(strain, strain.pointCounter);
+            choiceStrain[currentStrainName] = effectValue.value;
           }
         }
       });
+      var sortable = [];
+      var strainName;
+      for (var cStrain in choiceStrain) {
+        sortable.push([cStrain, choiceStrain[cStrain]]);
+      }
+      sortable.sort(function(a, b) {
+        return a[1] - b[1];
+      });
+
+      strainName = sortable[sortable.length - 1][0];
+
+      console.log(strainName);
+      console.log(sortable);
     }
 
     userTagChoice();

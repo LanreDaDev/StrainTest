@@ -232,7 +232,7 @@ choices.forEach(choice => {
           }
         }
 
-        const sort = sorted(choiceStrain);
+        const sort = sorted(choiceStrain); // Sorts the Object in a ascending
 
         for (let i = 0; i < sort.length; i++) {
           const element = sort[i][0];

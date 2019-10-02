@@ -201,7 +201,6 @@ getNewQuestion = () => {
   }
 };
 
-
 choices.forEach(choice => {
   choice.addEventListener("click", e => {
     if (!acceptingAnswers) return;
@@ -218,8 +217,7 @@ choices.forEach(choice => {
       const choiceStrain = {};
 
       availableStrains.forEach(strain => {
-
-// saves all strain that has the choosen effect and their value (The value will be used create points tier where your rank of attribute will determine the points --- See Readme )
+        // saves all strain that has the choosen effect and their value (The value will be used create points tier where your rank of attribute will determine the points --- See Readme )
 
         for (effect in strain.pro) {
           if (tagChoice === effect) {
@@ -235,73 +233,53 @@ choices.forEach(choice => {
 
         const sort = sorted(choiceStrain); // Sorts the Object by its numerical value in a ascending array of arrays
 
-        // if the current strain has the same name as the name in the sort array then it will increase the pointCounter of that strain 
+        // if the current strain has the same name as the name in the sort array then it will increase the pointCounter of that strain
         for (let i = 0; i < sort.length; i++) {
           const element = sort[i][0];
           if (strain.name == element) {
-            strain.pointCounter += 3;  
+            strain.pointCounter += 3;
           }
-          
-          
         }
-      
-      
       });
-     
-    
 
-      function sorted(strainArray){
+      function sorted(strainArray) {
         var sortable = [];
 
         for (var cStrain in strainArray) {
-          
-
           const strainNum = Object.getOwnPropertyDescriptor(
             strainArray,
             cStrain
           );
           sortable.push([cStrain, strainNum.value]);
         }
-         sortable.sort(function(a, b) {
-        return a[1] - b[1];
-      });
+        sortable.sort(function(a, b) {
+          return a[1] - b[1];
+        });
 
-      
-      return sortable
-
+        return sortable;
       }
-      
-
-      let max = 0
-      var maxName = [];
-      availableStrains.forEach(strain => {
-        if( strain.pointCounter >= max){
-          max = strain.pointCounter;
-          maxName.push(strain.name);
-
-        }
-
-      })      
-
-      console.log(tagChoice);
-      console.log(max, maxName);
-
-      
     }
 
     userTagChoice();
-    
+
+    //   Tallying up the pointCounter
+
+    let max = 0;
+    var maxName = [];
+    availableStrains.forEach(strain => {
+      if (strain.pointCounter >= max) {
+        max = strain.pointCounter;
+      }
+      maxName.push(strain.name);
+    });
+
+    // console.log(tagChoice);
+    console.log(max, maxName);
 
     console.log(selectedAnswer);
-   
-  console.log(strains);
-    
+    console.log(strains);
   });
-
- 
 });
-
-
 
 // Give the appropriate strain the score it deserves
 

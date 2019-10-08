@@ -272,7 +272,7 @@ choices.forEach(choice => {
 
     userTagChoice();
 
-    //   Tallying up the pointCounter
+    //   Tallying up the pointCounter 
 
     let max = 0;
     availableStrains.forEach(strain => {
@@ -282,18 +282,14 @@ choices.forEach(choice => {
     });
     console.log(max);
 
+  // Creates an array of "Strain"objects 
     
     const filteredItems = availableStrains.filter((strain) =>{
           
       return strain.pointCounter === max;
     })
 
-    
-    // console.log(tagChoice);
-
-    // console.log(selectedAnswer);
-    console.log(filteredItems);
-
+// Stores the strain and it is used int end.js or result page
     localStorage.setItem("perfectStrains", JSON.stringify(filteredItems))
 
 
@@ -301,12 +297,4 @@ choices.forEach(choice => {
   });
 });
 
-// Give the appropriate strain the score it deserves
-
-// Get the highest scoring strain and store its id in a local storage
-
-// Result Page
-// Get the highest scoring strain from local storage
-
-// Present the strain, its description, it's highest pros and "Where to buy" links in an HTML Page
 startGame();

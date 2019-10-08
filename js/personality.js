@@ -180,6 +180,7 @@ getNewQuestion = () => {
     bodyTag[0].style.backgroundImage = 'url("img/general.svg")';
     bodyTag[0].style.backgroundRepeat = "no-repeat";
     bodyTag[0].style.backgroundPosition = "right bottom";
+    
     for (let i = 0; i < allChoice.length; i++) {
       allChoice[i].style.backgroundColor = "#FFD700";
       allChoiceCont[i].style.border = "0.1rem solid rgba(255, 217, 0, 0.25)";
@@ -280,7 +281,6 @@ choices.forEach(choice => {
         max = strain.pointCounter;
       }
     });
-    console.log(max);
 
   // Creates an array of "Strain"objects 
     

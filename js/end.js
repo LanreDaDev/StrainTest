@@ -18,5 +18,24 @@
 // }
 const perfectStrains = JSON.parse(localStorage.getItem("perfectStrains"))
 
-console.log(perfectStrains);
+
+startResults = () =>{
+    strainCounter = 0;
+    resultStrains = [...perfectStrains];
+    const maxStrains = resultStrains.length;
+
+    getResults();
+}
+
+
+getResults = () =>{
+
+    if (resultStrains === 0 || strainCounter >= maxStrains) {
+        
+    }
+
+
+}
+
+// console.log(perfectStrains);
 

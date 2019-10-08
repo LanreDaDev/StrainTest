@@ -131,10 +131,20 @@ let questions = [
     answer: 4,
     tags: ["anxious", "sleepy", "dryEyes", "dizzy"],
     type: "green"
+  },
+  {
+    question: " When is your favourite activity when high?",
+    choice0: "Chilling on the couch",
+    choice1: "watching a movie",
+    choice2: "Doing homework?",
+    choice3: "Sleeping",
+    answer: 4,
+    tags: ["euphoric", "sleepy", "paranoid", "depression"],
+    type: "yellow"
   }
 ];
 
-const MAX_QUESTIONS = 3;
+const MAX_QUESTIONS = question.length;
 
 startGame = () => {
   questionCounter = 0;
@@ -265,19 +275,29 @@ choices.forEach(choice => {
     //   Tallying up the pointCounter
 
     let max = 0;
-    var maxName = [];
     availableStrains.forEach(strain => {
       if (strain.pointCounter >= max) {
         max = strain.pointCounter;
       }
-      maxName.push(strain.name);
     });
+    console.log(max);
 
+    
+    const filteredItems = availableStrains.filter((strain) =>{
+          
+      return strain.pointCounter === max;
+    })
+
+    
     // console.log(tagChoice);
-    console.log(max, maxName);
 
-    console.log(selectedAnswer);
-    console.log(strains);
+    // console.log(selectedAnswer);
+    console.log(filteredItems);
+
+    localStorage.setItem("perfectStrains", JSON.stringify(filteredItems))
+
+
+
   });
 });
 

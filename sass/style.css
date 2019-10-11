@@ -1,0 +1,31 @@
+header {
+  width: 320px;
+}
+
+header #circleBackground {
+  background: #0cd14d;
+  height: 5rem;
+  width: 5rem;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 2rem auto 0 auto;
+}
+
+header #circleBackground #strainAbbrev {
+  font-size: 2rem;
+  color: #2f2e41;
+}
+
+header h1 {
+  text-align: center;
+  color: #2f2e41;
+}
+/*# sourceMappingURL=style.css.map */

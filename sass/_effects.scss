@@ -1,0 +1,42 @@
+$primary-color: #0cd14d;
+$secondary-color: #2f2e41;
+
+#strainEffects {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  div {
+    width: 90%;
+    margin: 0 auto;
+  }
+  img {
+    width: calc(100% - 1rem);
+    padding: 1rem;
+  }
+  p {
+    text-align: center;
+  }
+}
+
+.effects-header {
+  width: 90%;
+  margin: 0 auto;
+}
+
+#navButtons {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  a {
+    margin-top: 1rem;
+    color: $primary-color;
+    text-decoration: none;
+    background: $secondary-color;
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+  }
+
+  a:first-of-type {
+    margin-right: 3rem;
+  }
+}

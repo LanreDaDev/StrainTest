@@ -16,21 +16,21 @@
 const perfectStrains = JSON.parse(localStorage.getItem("perfectStrains"));
 const key = "xaizI2o";
 const url = "strainapi.evanbusse.com/";
+// console.log(perfectStrains);
 
 resultStrains = [...perfectStrains];
 resultStrains.forEach(function(e) {
-  if (e.name == "") {
-  }
-  // console.log(e.name);
+  let name = e.name;
+  console.log(name);
+  let URL = search_ByName(url, key, name);
+
+  ajaxRequest(URL);
 });
-console.log(resultStrains[0].name);
+
+// console.log(resultStrains[0].name);
 
 let id = 5;
-let name = "Granddaddy Purple";
-
-let URL = search_ByName(url, key, name);
-
-ajaxRequest(URL);
+// let name = "Granddaddy Purple";
 
 function ajaxRequest(URL) {
   const xhr = new XMLHttpRequest();
@@ -44,7 +44,7 @@ function ajaxRequest(URL) {
       // ajaxRequest(URLEffects);
       console.log(data);
 
-      //   display_Data(data);
+        // display_Data(data);
     }
   };
 

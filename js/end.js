@@ -25,34 +25,83 @@ resultStrains.forEach(function(e) {
   let URL = search_ByName(url, key, name);
 
   ajaxRequest(URL);
-});
 
-// console.log(resultStrains[0].name);
+  // console.log(resultStrains[0].name);
 
-let id = 5;
-// let name = "Granddaddy Purple";
+  // let name = "Granddaddy Purple";
 
-function ajaxRequest(URL) {
-  const xhr = new XMLHttpRequest();
-  xhr.open("GET", "http://" + URL, true);
-  xhr.onreadystatechange = function() {
-    if (xhr.readyState === 4 && xhr.status === 200) {
-      let res = xhr.response;
-      let data = JSON.parse(res);
-      // let identification = data[0].id;
-      // let URLEffects = search_ByStrainEffect(url, key, identification);
-      // ajaxRequest(URLEffects);
-      console.log(data);
+  function ajaxRequest(URL) {
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", "http://" + URL, true);
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        let res = xhr.response;
+        let data = JSON.parse(res);
+        // let identification = data[0].id;
+        // let URLEffects = search_ByStrainEffect(url, key, identification);
+        // ajaxRequest(URLEffects);
+        for (let i = 0; i < data.length; i++) {
+          if (e.name === data[i].name) {
+            // console.log(data[i].id);
+            let id = data[i].id;
+            let URLEffects = search_ByStrainEffect(url, key, id);
+            let URLFlavors = search_ByStrainFlavor(url, key, id);
+
+            ajaxRequestEffects(URLEffects);
+            ajaxRequestFlavour(URLFlavors);
+          }
+        }
+        // console.log(data);
 
         // display_Data(data);
-    }
-  };
+      }
+    };
 
-  xhr.send();
-}
+    xhr.send();
+  }
 
+  function ajaxRequestEffects(URL) {
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", "http://" + URL, true);
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        let res = xhr.response;
+        let data = JSON.parse(res);
+
+        console.log(data);
+
+        // display_Data(data);
+      }
+    };
+
+    xhr.send();
+  }
+
+  function ajaxRequestFlavour(URL) {
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", "http://" + URL, true);
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        let res = xhr.response;
+        let data = JSON.parse(res);
+
+        console.log(data);
+
+        // display_Data(data);
+      }
+    };
+
+    xhr.send();
+  }
+});
 function search_ByName(url, key, name) {
   return url + key + "/strains/search/name/" + name.toLowerCase();
+}
+function search_ByStrainEffect(url, key, strainID) {
+  return url + key + "/strains/data/effects/" + strainID;
+}
+function search_ByStrainFlavor(url, key, strainID) {
+  return url + key + "/strains/data/flavors/" + strainID;
 }
 
 // startResults = () => {

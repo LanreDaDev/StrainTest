@@ -68,6 +68,10 @@ header .potencyPercentage p {
   text-align: center;
 }
 
+header .race {
+  text-transform: capitalize;
+}
+
 #strainEffects {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -114,7 +118,17 @@ header .potencyPercentage p {
   color: #0cd14d;
   text-decoration: none;
   background: #2f2e41;
-  padding: 0.5rem 0.75rem;
+  padding: 0.5rem 0.5rem;
+  margin-bottom: 2rem;
+  width: 1.5rem;
+}
+
+#navButtons a .endNavBtn {
+  color: #0cd14d;
+  width: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #navButtons a:first-of-type {
@@ -132,10 +146,5 @@ header .potencyPercentage p {
 
 .strainInfo #strainDesc {
   color: #fff;
-}
-
-.prev {
-  color: #0cd14d;
-  width: 10rem;
 }
 /*# sourceMappingURL=style.css.map */

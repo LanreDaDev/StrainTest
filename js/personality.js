@@ -180,7 +180,7 @@ getNewQuestion = () => {
     bodyTag[0].style.backgroundImage = 'url("img/general.svg")';
     bodyTag[0].style.backgroundRepeat = "no-repeat";
     bodyTag[0].style.backgroundPosition = "right bottom";
-    
+
     for (let i = 0; i < allChoice.length; i++) {
       allChoice[i].style.backgroundColor = "#FFD700";
       allChoiceCont[i].style.border = "0.1rem solid rgba(255, 217, 0, 0.25)";
@@ -273,7 +273,7 @@ choices.forEach(choice => {
 
     userTagChoice();
 
-    //   Tallying up the pointCounter 
+    //   Tallying up the pointCounter
 
     let max = 0;
     availableStrains.forEach(strain => {
@@ -282,18 +282,14 @@ choices.forEach(choice => {
       }
     });
 
-  // Creates an array of "Strain"objects 
-    
-    const filteredItems = availableStrains.filter((strain) =>{
-          
+    // Creates an array of "Strain"objects
+
+    const filteredItems = availableStrains.filter(strain => {
       return strain.pointCounter === max;
-    })
+    });
 
-// Stores the strain and it is used int end.js or result page
-    localStorage.setItem("perfectStrains", JSON.stringify(filteredItems))
-
-
-
+    // Stores the strain and it is used int end.js or result page
+    localStorage.setItem("perfectStrains", JSON.stringify(filteredItems));
   });
 });
 

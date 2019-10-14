@@ -14,9 +14,15 @@
 //   e.preventDefault();
 // };
 const perfectStrains = JSON.parse(localStorage.getItem("perfectStrains"));
+const strainHeader = document.querySelector("h1");
+const strainDesc = document.querySelector("#strainDesc");
+const generalEffects = document.querySelector("#generalEffects p");
+const medicalEffects = document.querySelector("#medicalEffects p");
+const sideEffects = document.querySelector("#sideEffects p");
+
 const key = "xaizI2o";
 const url = "strainapi.evanbusse.com/";
-// console.log(perfectStrains);
+console.log(strainHeader);
 
 resultStrains = [...perfectStrains];
 resultStrains.forEach(function(e) {
@@ -46,12 +52,14 @@ resultStrains.forEach(function(e) {
             let id = data[i].id;
             let URLEffects = search_ByStrainEffect(url, key, id);
             let URLFlavors = search_ByStrainFlavor(url, key, id);
+            strainHeader.innerHTML = data[i].name;
+            strainDesc.innerHTML = data[i].desc;
 
             ajaxRequestEffects(URLEffects);
             ajaxRequestFlavour(URLFlavors);
+            console.log(data);
           }
         }
-        // console.log(data);
 
         // display_Data(data);
       }
@@ -84,6 +92,9 @@ resultStrains.forEach(function(e) {
       if (xhr.readyState === 4 && xhr.status === 200) {
         let res = xhr.response;
         let data = JSON.parse(res);
+        generalEffects.innerHTML = data[0];
+        medicalEffects.innerHTML = data[1];
+        sideEffects.innerHTML = data[2];
 
         console.log(data);
 

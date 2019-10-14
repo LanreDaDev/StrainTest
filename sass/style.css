@@ -133,4 +133,9 @@ header .potencyPercentage p {
 .strainInfo #strainDesc {
   color: #fff;
 }
+
+.prev {
+  color: #0cd14d;
+  width: 10rem;
+}
 /*# sourceMappingURL=style.css.map */

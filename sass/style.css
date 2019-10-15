@@ -89,9 +89,13 @@ header .race {
   margin: 0 auto;
 }
 
-#strainEffects img {
+#strainEffects img, #strainEffects svg {
   width: calc(100% - 1rem);
   padding: 1rem;
+}
+
+#strainEffects svg {
+  padding: 0;
 }
 
 #strainEffects p {

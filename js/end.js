@@ -21,6 +21,9 @@ const medicalEffects = document.querySelector("#medicalEffects");
 const sideEffects = document.querySelector("#sideEffects");
 const strainRace = document.querySelector(".race");
 const strainFlavor = document.querySelector("#flavors");
+const prevBtn = document.querySelector("#prevBtn"); 
+
+
 
 const key = "xaizI2o";
 const url = "strainapi.evanbusse.com/";
@@ -28,6 +31,10 @@ console.log(strainHeader);
 
 resultStrains = [...perfectStrains];
 resultStrains.forEach(function(e) {
+
+  prevBtn.addEventListener("click", () =>{
+    
+  })
   let name = e.name;
   console.log(e);
   let URL = search_ByName(url, key, name);
@@ -48,6 +55,10 @@ resultStrains.forEach(function(e) {
         // let identification = data[0].id;
         // let URLEffects = search_ByStrainEffect(url, key, identification);
         // ajaxRequest(URLEffects);
+
+        prevBtn.addEventListener("click", () =>{
+    
+        })
         for (let i = 0; i < data.length; i++) {
           if (e.name === data[i].name) {
             // console.log(data[i].id);

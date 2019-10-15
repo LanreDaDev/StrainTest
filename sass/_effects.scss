@@ -9,9 +9,12 @@ $secondary-color: #2f2e41;
     width: 90%;
     margin: 0 auto;
   }
-  img {
+  img, svg {
     width: calc(100% - 1rem);
     padding: 1rem;
+  }
+  svg{
+    padding: 0;
   }
   p {
     text-align: center;
@@ -48,3 +51,4 @@ $secondary-color: #2f2e41;
     margin-right: 3rem;
   }
 }
+

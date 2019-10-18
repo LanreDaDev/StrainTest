@@ -1,0 +1,20 @@
+@font-face {
+  src: url(/fonts/OpenSans-Regular.ttf);
+  font-family: OpenSans;
+}
+@font-face {
+  src: url(/fonts/OpenSans-Light.ttf);
+  font-family: OpenSans Light;
+}
+
+h1,
+p {
+  font-family: OpenSans;
+}
+
+a {
+  font-family: OpenSans Light;
+}
+.race {
+  font-family: OpenSans;
+}

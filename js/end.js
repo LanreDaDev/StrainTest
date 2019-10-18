@@ -48,6 +48,8 @@ function nextItem() {
 
 window.addEventListener("load", () => {
   let name = resultStrains[0].name;
+  // let name = "Romulan";
+
   let URL = search_ByName(url, key, name);
   console.log(resultStrains);
 
@@ -105,35 +107,35 @@ window.addEventListener("load", () => {
 
         // Positive Effects
 
-        var posEffectList = "<ul>";
+        var posEffectList = "<div>";
 
         data.positive.forEach(function(effects) {
-          posEffectList += "<li>" + effects + "</li>";
+          posEffectList += "<a href=''>" + effects + "</a>";
         });
 
-        posEffectList += "</ul>";
+        posEffectList += "</div>";
         generalEffects.innerHTML = posEffectList;
 
         // Medical Effects
 
-        var medEffectList = "<ul>";
+        var medEffectList = "<div>";
 
         data.medical.forEach(function(effects) {
-          medEffectList += "<li>" + effects + "</li>";
+          medEffectList += "<a href=''>" + effects + "</a>";
         });
 
-        medEffectList += "</ul>";
+        medEffectList += "</div>";
         medicalEffects.innerHTML = medEffectList;
 
         // Negative Effects
 
-        var negEffectList = "<ul>";
+        var negEffectList = "<div>";
 
         data.negative.forEach(function(effects) {
-          negEffectList += "<li>" + effects + "</li>";
+          negEffectList += "<a href=''>" + effects + "</a>";
         });
 
-        negEffectList += "</ul>";
+        negEffectList += "</div>";
         sideEffects.innerHTML = negEffectList;
       }
     };
@@ -153,13 +155,13 @@ window.addEventListener("load", () => {
         // sideEffects.innerHTML = data[2];
 
         console.log(data);
-        var flavorList = "<ul>";
+        var flavorList = "<div>";
 
         data.forEach(function(effects) {
-          flavorList += "<li>" + effects + "</li>";
+          flavorList += "<a href=''>" + effects + "</a>";
         });
 
-        flavorList += "</ul>";
+        flavorList += "</div>";
         strainFlavor.innerHTML = flavorList;
 
         // display_Data(data);
@@ -231,35 +233,35 @@ window.addEventListener("load", () => {
 
           // Positive Effects
 
-          var posEffectList = "<ul>";
+          var posEffectList = "<div>";
 
           data.positive.forEach(function(effects) {
-            posEffectList += "<li>" + effects + "</li>";
+            posEffectList += "<a href=''>" + effects + "</a>";
           });
 
-          posEffectList += "</ul>";
+          posEffectList += "</div>";
           generalEffects.innerHTML = posEffectList;
 
           // Medical Effects
 
-          var medEffectList = "<ul>";
+          var medEffectList = "<li>";
 
           data.medical.forEach(function(effects) {
-            medEffectList += "<li>" + effects + "</li>";
+            medEffectList += "<a href=''>" + effects + "</li>";
           });
 
-          medEffectList += "</ul>";
+          medEffectList += "</div>";
           medicalEffects.innerHTML = medEffectList;
 
           // Negative Effects
 
-          var negEffectList = "<ul>";
+          var negEffectList = "<div>";
 
           data.negative.forEach(function(effects) {
-            negEffectList += "<li>" + effects + "</li>";
+            negEffectList += "<a href=''>" + effects + "</a>";
           });
 
-          negEffectList += "</ul>";
+          negEffectList += "</div>";
           sideEffects.innerHTML = negEffectList;
         }
       };
@@ -279,13 +281,13 @@ window.addEventListener("load", () => {
           // sideEffects.innerHTML = data[2];
 
           console.log(data);
-          var flavorList = "<ul>";
+          var flavorList = "<div>";
 
           data.forEach(function(effects) {
-            flavorList += "<li>" + effects + "</li>";
+            flavorList += "<a href=''>" + effects + "</a>";
           });
 
-          flavorList += "</ul>";
+          flavorList += "</div>";
           strainFlavor.innerHTML = flavorList;
 
           // display_Data(data);
@@ -356,35 +358,35 @@ window.addEventListener("load", () => {
 
           // Positive Effects
 
-          var posEffectList = "<ul>";
+          var posEffectList = "<div>";
 
           data.positive.forEach(function(effects) {
-            posEffectList += "<li>" + effects + "</li>";
+            posEffectList += "<a href=''>" + effects + "</a>";
           });
 
-          posEffectList += "</ul>";
+          posEffectList += "</div>";
           generalEffects.innerHTML = posEffectList;
 
           // Medical Effects
 
-          var medEffectList = "<ul>";
+          var medEffectList = "<div>";
 
           data.medical.forEach(function(effects) {
-            medEffectList += "<li>" + effects + "</li>";
+            medEffectList += "<a href=''>" + effects + "</a>";
           });
 
-          medEffectList += "</ul>";
+          medEffectList += "</div>";
           medicalEffects.innerHTML = medEffectList;
 
           // Negative Effects
 
-          var negEffectList = "<ul>";
+          var negEffectList = "<div>";
 
           data.negative.forEach(function(effects) {
-            negEffectList += "<li>" + effects + "</li>";
+            negEffectList += "<a href=''>" + effects + "</a>";
           });
 
-          negEffectList += "</ul>";
+          negEffectList += "</div>";
           sideEffects.innerHTML = negEffectList;
         }
       };
@@ -404,13 +406,13 @@ window.addEventListener("load", () => {
           // sideEffects.innerHTML = data[2];
 
           console.log(data);
-          var flavorList = "<ul>";
+          var flavorList = "<div>";
 
           data.forEach(function(effects) {
-            flavorList += "<li>" + effects + "</li>";
+            flavorList += "<a href=''>" + effects + "</a>";
           });
 
-          flavorList += "</ul>";
+          flavorList += "</div>";
           strainFlavor.innerHTML = flavorList;
 
           // display_Data(data);

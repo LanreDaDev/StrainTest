@@ -9,15 +9,93 @@ $secondary-color: #2f2e41;
     width: 90%;
     margin: 0 auto;
   }
-  img, svg {
+  img,
+  svg {
     width: calc(100% - 1rem);
     padding: 1rem;
   }
-  svg{
+  svg {
     padding: 0;
   }
   p {
     text-align: center;
+  }
+  #medicalEffects {
+    width: 100%;
+    a {
+      border: 0.05rem solid #5cdb95;
+      color: #5cdb95;
+    }
+    a:hover {
+      cursor: pointer;
+      box-shadow: 0 0.4rem 1.4rem 0 #5cdb95;
+      transform: translateY(-0.1rem);
+      transition: transform 150ms;
+      border: none;
+    }
+  }
+
+  #generalEffects {
+    width: 100%;
+    a {
+      color: #f1cd00;
+
+      border: 0.05rem solid #ffd700;
+    }
+    a:hover {
+      cursor: pointer;
+      box-shadow: 0 0.4rem 1.4rem 0 rgba(255, 217, 0, 0.5);
+      transform: translateY(-0.1rem);
+      transition: transform 150ms;
+      border: none;
+    }
+  }
+  #sideEffects {
+    width: 100%;
+    a {
+      border: 0.05rem solid #ff4845;
+      color: #ff4845;
+    }
+    a:hover {
+      cursor: pointer;
+      box-shadow: 0 0.4rem 1.4rem 0 rgba(255, 72, 69, 0.5);
+      transform: translateY(-0.1rem);
+      transition: transform 150ms;
+      border: none;
+    }
+  }
+
+  #flavors {
+    width: 100%;
+    a {
+      border: 0.05rem solid #4561ff;
+      color: #4561ff;
+    }
+    a:hover {
+      cursor: pointer;
+      box-shadow: 0 0.4rem 1.4rem 0 rgba(69, 97, 255, 0.5);
+      transform: translateY(-0.1rem);
+      transition: transform 150ms;
+      border: none;
+    }
+    margin-bottom: 2rem;
+  }
+  div {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 1rem 0 0 0;
+    padding: 0;
+  }
+  a {
+    list-style-type: none;
+    padding: 0.5rem 1rem;
+    margin: 0.5rem 0.5rem;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.25rem;
   }
 }
 
@@ -51,4 +129,3 @@ $secondary-color: #2f2e41;
     margin-right: 3rem;
   }
 }
-

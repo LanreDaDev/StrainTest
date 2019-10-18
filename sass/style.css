@@ -70,6 +70,7 @@ header .potencyPercentage p {
 
 header .race {
   text-transform: capitalize;
+  text-align: center;
 }
 
 #strainEffects {
@@ -89,7 +90,8 @@ header .race {
   margin: 0 auto;
 }
 
-#strainEffects img, #strainEffects svg {
+#strainEffects img,
+#strainEffects svg {
   width: calc(100% - 1rem);
   padding: 1rem;
 }
@@ -100,6 +102,121 @@ header .race {
 
 #strainEffects p {
   text-align: center;
+}
+
+#strainEffects #medicalEffects {
+  width: 100%;
+}
+
+#strainEffects #medicalEffects a {
+  border: 0.05rem solid #5cdb95;
+  color: #5cdb95;
+}
+
+#strainEffects #medicalEffects a:hover {
+  cursor: pointer;
+  -webkit-box-shadow: 0 0.4rem 1.4rem 0 #5cdb95;
+          box-shadow: 0 0.4rem 1.4rem 0 #5cdb95;
+  -webkit-transform: translateY(-0.1rem);
+          transform: translateY(-0.1rem);
+  -webkit-transition: -webkit-transform 150ms;
+  transition: -webkit-transform 150ms;
+  transition: transform 150ms;
+  transition: transform 150ms, -webkit-transform 150ms;
+  border: none;
+}
+
+#strainEffects #generalEffects {
+  width: 100%;
+}
+
+#strainEffects #generalEffects a {
+  color: #f1cd00;
+  border: 0.05rem solid #ffd700;
+}
+
+#strainEffects #generalEffects a:hover {
+  cursor: pointer;
+  -webkit-box-shadow: 0 0.4rem 1.4rem 0 rgba(255, 217, 0, 0.5);
+          box-shadow: 0 0.4rem 1.4rem 0 rgba(255, 217, 0, 0.5);
+  -webkit-transform: translateY(-0.1rem);
+          transform: translateY(-0.1rem);
+  -webkit-transition: -webkit-transform 150ms;
+  transition: -webkit-transform 150ms;
+  transition: transform 150ms;
+  transition: transform 150ms, -webkit-transform 150ms;
+  border: none;
+}
+
+#strainEffects #sideEffects {
+  width: 100%;
+}
+
+#strainEffects #sideEffects a {
+  border: 0.05rem solid #ff4845;
+  color: #ff4845;
+}
+
+#strainEffects #sideEffects a:hover {
+  cursor: pointer;
+  -webkit-box-shadow: 0 0.4rem 1.4rem 0 rgba(255, 72, 69, 0.5);
+          box-shadow: 0 0.4rem 1.4rem 0 rgba(255, 72, 69, 0.5);
+  -webkit-transform: translateY(-0.1rem);
+          transform: translateY(-0.1rem);
+  -webkit-transition: -webkit-transform 150ms;
+  transition: -webkit-transform 150ms;
+  transition: transform 150ms;
+  transition: transform 150ms, -webkit-transform 150ms;
+  border: none;
+}
+
+#strainEffects #flavors {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+#strainEffects #flavors a {
+  border: 0.05rem solid #4561ff;
+  color: #4561ff;
+}
+
+#strainEffects #flavors a:hover {
+  cursor: pointer;
+  -webkit-box-shadow: 0 0.4rem 1.4rem 0 rgba(69, 97, 255, 0.5);
+          box-shadow: 0 0.4rem 1.4rem 0 rgba(69, 97, 255, 0.5);
+  -webkit-transform: translateY(-0.1rem);
+          transform: translateY(-0.1rem);
+  -webkit-transition: -webkit-transform 150ms;
+  transition: -webkit-transform 150ms;
+  transition: transform 150ms;
+  transition: transform 150ms, -webkit-transform 150ms;
+  border: none;
+}
+
+#strainEffects div {
+  width: 90%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: 1rem 0 0 0;
+  padding: 0;
+}
+
+#strainEffects a {
+  list-style-type: none;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem 0.5rem;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.25rem;
 }
 
 .effects-header {
@@ -150,5 +267,28 @@ header .race {
 
 .strainInfo #strainDesc {
   color: #fff;
+}
+
+@font-face {
+  src: url(/fonts/OpenSans-Regular.ttf);
+  font-family: OpenSans;
+}
+
+@font-face {
+  src: url(/fonts/OpenSans-Light.ttf);
+  font-family: OpenSans Light;
+}
+
+h1,
+p {
+  font-family: OpenSans;
+}
+
+a {
+  font-family: OpenSans Light;
+}
+
+.race {
+  font-family: OpenSans;
 }
 /*# sourceMappingURL=style.css.map */

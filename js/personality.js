@@ -99,6 +99,30 @@ let strains = [
       paranoid: 21.28
     },
     pointCounter: 0
+  },
+  {
+    id: "05",
+    name: "Romulan",
+    pro: {
+      relaxed: 100,
+      sleepy: 74.93,
+      happy: 67.02,
+      euphoric: 66.41,
+      hungry: 43.56,
+      stress: 100,
+      pain: 87.86,
+      insomnia: 87.1,
+      depression: 66.55,
+      lackAppetite: 41.39
+    },
+    con: {
+      dryEyes: 55.15,
+      dryMouth: 100,
+      dizzy: 22.81,
+      anxious: 22.64,
+      paranoid: 21.28
+    },
+    pointCounter: 0
   }
 ];
 let questions = [
@@ -232,43 +256,10 @@ choices.forEach(choice => {
 
         for (effect in strain.pro) {
           if (tagChoice === effect) {
-            const effectValue = Object.getOwnPropertyDescriptor(
-              strain.pro,
-              effect
-            );
-            var currentStrainName = strain.name;
-
-            choiceStrain[currentStrainName] = effectValue.value;
-          }
-        }
-
-        const sort = sorted(choiceStrain); // Sorts the Object by its numerical value in a ascending array of arrays
-
-        // if the current strain has the same name as the name in the sort array then it will increase the pointCounter of that strain
-        for (let i = 0; i < sort.length; i++) {
-          const element = sort[i][0];
-          if (strain.name == element) {
             strain.pointCounter += 3;
           }
         }
       });
-
-      function sorted(strainArray) {
-        var sortable = [];
-
-        for (var cStrain in strainArray) {
-          const strainNum = Object.getOwnPropertyDescriptor(
-            strainArray,
-            cStrain
-          );
-          sortable.push([cStrain, strainNum.value]);
-        }
-        sortable.sort(function(a, b) {
-          return a[1] - b[1];
-        });
-
-        return sortable;
-      }
     }
 
     userTagChoice();

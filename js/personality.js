@@ -4,6 +4,8 @@ const question = document.getElementById("question");
 // Store the choices id in a const
 const choices = Array.from(document.getElementsByClassName("choice-text"));
 const bodyTag = document.getElementsByTagName("body");
+const key = "xaizI2o";
+const url = "strainapi.evanbusse.com/";
 
 // QUESTIONS
 
@@ -245,20 +247,77 @@ choices.forEach(choice => {
     const selectedAnswer = selectedChoice.dataset["number"];
     getNewQuestion();
 
+    // Get Strain Info Closure
+    function getStrainInfo(strain, tagChoice) {
+      let name = strain.name;
+
+      let URL = search_ByName(url, key, name);
+
+      ajaxRequest(URL);
+
+      function ajaxRequest(URL) {
+        const xhr = new XMLHttpRequest();
+        xhr.open("GET", "http://" + URL, true);
+        xhr.onreadystatechange = function() {
+          if (xhr.readyState === 4 && xhr.status === 200) {
+            let res = xhr.response;
+            let data = JSON.parse(res);
+
+            for (let i = 0; i < data.length; i++) {
+              if (name === data[i].name) {
+                // console.log(data[i].id);
+                let id = data[i].id;
+                let URLEffects = search_ByStrainEffect(url, key, id);
+                // let URLFlavors = search_ByStrainFlavor(url, key, id);
+
+                ajaxRequestEffects(URLEffects);
+                // ajaxRequestFlavour(URLFlavors);
+                console.log(data);
+              }
+            }
+          }
+        };
+
+        xhr.send();
+      }
+      function ajaxRequestEffects(URL) {
+        const xhr = new XMLHttpRequest();
+        xhr.open("GET", "http://" + URL, true);
+        xhr.onreadystatechange = function() {
+          if (xhr.readyState === 4 && xhr.status === 200) {
+            let res = xhr.response;
+            let data = JSON.parse(res);
+            console.log(data);
+
+            data.positive.forEach(function(effects) {
+              if (tagChoice === effects.toLowerCase()) {
+                strain.pointCounter += 3;
+                console.log("it matches");
+              }
+            });
+            data.medical.forEach(function(effects) {
+              if (tagChoice === effects.toLowerCase()) {
+                strain.pointCounter += 3;
+                console.log("it Medic matches");
+                console.log(strain);
+              }
+            });
+          }
+        };
+
+        xhr.send();
+      }
+    }
+
     function userTagChoice() {
       // Correlate each choice with a tag
 
       const tagChoice = currentQuestion.tags[selectedAnswer];
-      const choiceStrain = {};
 
       availableStrains.forEach(strain => {
         // saves all strain that has the choosen effect and their value (The value will be used create points tier where your rank of attribute will determine the points --- See Readme )
 
-        for (effect in strain.pro) {
-          if (tagChoice === effect) {
-            strain.pointCounter += 3;
-          }
-        }
+        getStrainInfo(strain, tagChoice);
       });
     }
 
@@ -283,5 +342,15 @@ choices.forEach(choice => {
     localStorage.setItem("perfectStrains", JSON.stringify(filteredItems));
   });
 });
+
+function search_ByName(url, key, name) {
+  return url + key + "/strains/search/name/" + name.toLowerCase();
+}
+function search_ByStrainEffect(url, key, strainID) {
+  return url + key + "/strains/data/effects/" + strainID;
+}
+function search_ByStrainFlavor(url, key, strainID) {
+  return url + key + "/strains/data/flavors/" + strainID;
+}
 
 startGame();

@@ -19,111 +19,27 @@ let strains = [
   {
     id: "01",
     name: "King Kong",
-    pro: {
-      relaxed: 100,
-      happy: 84,
-      sleepy: 74,
-      uplifted: 68,
-      hungry: 63,
-      insomnia: 100,
-      pain: 47
-    },
-    con: {
-      dryEyes: 100,
-      dryMouth: 96,
-      headaches: 79,
-      paranoid: 68,
-      hungry: 63
-    },
     pointCounter: 0
   },
 
   {
     id: "02",
     name: "Ice Wreck",
-    pro: {
-      relaxed: 100,
-      happy: 84.678,
-      sleepy: 74.333,
-      uplifted: 68.423,
-      hungry: 63.332,
-      insomnia: 100,
-      pain: 47.23323
-    },
-    con: {
-      dryEyes: 100,
-      dryMouth: 96.32423,
-      headaches: 79.54646764,
-      paranoid: 68.3543645,
-      hungry: 63.534242
-    },
     pointCounter: 0
   },
   {
     id: "03",
     name: "White Bubblegum",
-    pro: {
-      aroused: 100,
-      energetic: 100,
-      euphoric: 100,
-      creative: 80,
-      giggly: 40,
-      depression: 100,
-      headaches: 100,
-      insomnia: 100,
-      stress: 100
-    },
-    con: {
-      dryMouth: 100
-    },
     pointCounter: 0
   },
   {
     id: "04",
     name: "Granddaddy Purple",
-    pro: {
-      relaxed: 100,
-      sleepy: 74.93,
-      happy: 67.02,
-      euphoric: 66.41,
-      hungry: 43.56,
-      stress: 100,
-      pain: 87.86,
-      insomnia: 87.1,
-      depression: 66.55,
-      lackAppetite: 41.39
-    },
-    con: {
-      dryEyes: 55.15,
-      dryMouth: 100,
-      dizzy: 22.81,
-      anxious: 22.64,
-      paranoid: 21.28
-    },
     pointCounter: 0
   },
   {
     id: "05",
     name: "Romulan",
-    pro: {
-      relaxed: 100,
-      sleepy: 74.93,
-      happy: 67.02,
-      euphoric: 66.41,
-      hungry: 43.56,
-      stress: 100,
-      pain: 87.86,
-      insomnia: 87.1,
-      depression: 66.55,
-      lackAppetite: 41.39
-    },
-    con: {
-      dryEyes: 55.15,
-      dryMouth: 100,
-      dizzy: 22.81,
-      anxious: 22.64,
-      paranoid: 21.28
-    },
     pointCounter: 0
   }
 ];
@@ -299,6 +215,13 @@ choices.forEach(choice => {
               if (tagChoice === effects.toLowerCase()) {
                 strain.pointCounter += 3;
                 console.log("it Medic matches");
+                console.log(strain);
+              }
+            });
+            data.negative.forEach(function(effects) {
+              if (tagChoice === effects.toLowerCase()) {
+                strain.pointCounter -= 3;
+                console.log("it Negative matches");
                 console.log(strain);
               }
             });

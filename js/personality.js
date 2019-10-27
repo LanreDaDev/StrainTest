@@ -17,72 +17,252 @@ let availableQuesions = [];
 
 let strains = [
   {
-    id: "01",
-    name: "King Kong",
+    name: "God's Green Crack",
     pointCounter: 0
   },
 
   {
-    id: "02",
+    name: "Pre-98 Bubba Kush",
+    pointCounter: 0
+  },
+  {
+    name: "Platinum OG",
+    pointCounter: 0
+  },
+  {
+    name: "Romulan",
+    pointCounter: 0
+  },
+  {
+    name: "MK Ultra",
+    pointCounter: 0
+  },
+  {
+    name: "Super Sour Diesel",
+    pointCounter: 0
+  },
+  {
+    name: "Alien OG",
+    pointCounter: 0
+  },
+  {
     name: "Ice Wreck",
     pointCounter: 0
   },
   {
-    id: "03",
-    name: "White Bubblegum",
+    name: "Nuken",
     pointCounter: 0
   },
   {
-    id: "04",
-    name: "Granddaddy Purple",
+    name: "Scooby Snacks",
     pointCounter: 0
   },
   {
-    id: "05",
-    name: "Romulan",
+    name: "Tuna Kush",
+    pointCounter: 0
+  },
+  {
+    name: "Wedding Cake",
+    pointCounter: 0
+  },
+  {
+    name: "Pine Tar Kush",
+    pointCounter: 0
+  },
+  {
+    name: "Violator Kush",
+    pointCounter: 0
+  },
+  {
+    name: "Black Diamond",
+    pointCounter: 0
+  },
+  {
+    name: "Bruce Banner",
+    pointCounter: 0
+  },
+  {
+    name: "Nebula",
+    pointCounter: 0
+  },
+  {
+    name: "Astroboy",
+    pointCounter: 0
+  },
+  {
+    name: "Gelato",
+    pointCounter: 0
+  },
+  {
+    name: "Purple Kush",
+    pointCounter: 0
+  },
+  {
+    name: "Rockstar",
+    pointCounter: 0
+  },
+  {
+    name: "Moby Dick",
+    pointCounter: 0
+  },
+  {
+    name: "El Jefe",
+    pointCounter: 0
+  },
+  {
+    name: "Chocolate OG",
+    pointCounter: 0
+  },
+  {
+    name: "Kushberry",
+    pointCounter: 0
+  },
+  {
+    name: "Black Widow",
+    pointCounter: 0
+  },
+  {
+    name: "Casey Jones",
+    pointCounter: 0
+  },
+  {
+    name: "Crystal Coma",
+    pointCounter: 0
+  },
+  {
+    name: "Bubba OG",
+    pointCounter: 0
+  },
+  {
+    name: "Northern Lights",
+    pointCounter: 0
+  },
+  {
+    name: "Jack the Ripper",
+    pointCounter: 0
+  },
+  {
+    name: "Alaskan Thunder Fuck",
+    pointCounter: 0
+  },
+  {
+    name: "Angel OG",
+    pointCounter: 0
+  },
+  {
+    name: "Black Bubba",
+    pointCounter: 0
+  },
+  {
+    name: "Animal Cookies",
+    pointCounter: 0
+  },
+  {
+    name: "Black Tuna",
+    pointCounter: 0
+  },
+  {
+    name: "Alice in Wonderland",
+    pointCounter: 0
+  },
+  {
+    name: "Hawaiian Punch",
+    pointCounter: 0
+  },
+  {
+    name: "Lemon Cake",
+    pointCounter: 0
+  },
+  {
+    name: "King Kong",
+    pointCounter: 0
+  },
+  {
+    name: "Atomic Northern Lights",
+    pointCounter: 0
+  },
+  {
+    name: "Fire OG",
+    pointCounter: 0
+  },
+  {
+    name: "Larry OG",
     pointCounter: 0
   }
 ];
 let questions = [
   {
-    question: "What kind of high do you prefer?",
-    choice0: "energetic & talkative",
-    choice1: "Calm & Relaxing",
-    choice2: "a heathy mix of the choice 1 and 2",
-    choice3: "Therapeutic sort of high",
-    answer: 1,
-    tags: ["hungry", "happy", "pain", "relaxed"],
+    question: "Pick a positive effect you would like to experience?",
+    choice0: "Creative",
+    choice1: "Energetic",
+    choice2: "Euphoric",
+    choice3: "Focused",
+    tags: ["creative", "energetic", "euphoric", "focused"],
     type: "yellow"
   },
   {
-    question: "Do you have issues with sleep?",
-    choice0: "Often",
-    choice1: "Sometimes",
-    choice2: "Not Often",
-    choice3: "Never",
-    answer: 3,
-    tags: ["insomnia", "depression", "pain", "lackAppetite"],
-    type: "red"
+    question: "Pick a positive effect you would like to experience?",
+    choice0: "Giggly",
+    choice1: "Happy",
+    choice2: "Hungry",
+    choice3: "Relaxed",
+    tags: ["giggly", "happy", "hungry", "relaxed"],
+    type: "yellow"
   },
   {
-    question: " When do you usually smoke your first bowl?",
-    choice0: "Daytime",
-    choice1: "Evening",
-    choice2: "No Preference",
-    choice3: "When Im in pain",
-    answer: 4,
-    tags: ["anxious", "sleepy", "dryEyes", "dizzy"],
+    question: "Pick a positive effect you would like to experience?",
+    choice0: "Sleepy",
+    choice1: "Talkative",
+    choice2: "Tingly",
+    choice3: "Uplifted",
+    tags: ["sleepy", "talkative", "tingly", "uplifted"],
+    type: "yellow"
+  },
+
+  {
+    question: "Pick a medical issues you need help with?",
+    choice0: "Depression",
+    choice1: "Eye Pressure",
+    choice2: "Fatigue",
+    choice3: "Headache",
+    tags: ["depression", "eye pressure", "fatigue", "headache"],
     type: "green"
   },
   {
-    question: " When is your favourite activity when high?",
-    choice0: "Chilling on the couch",
-    choice1: "watching a movie",
-    choice2: "Doing homework?",
-    choice3: "Sleeping",
-    answer: 4,
-    tags: ["euphoric", "sleepy", "paranoid", "depression"],
-    type: "yellow"
+    question: "Pick a medical issues you need help with?",
+    choice0: "Inflammation",
+    choice1: "Insomnia",
+    choice2: "Lack of Appetite",
+    choice3: "Muscle Spasms",
+    tags: ["inflammation", "insomnia", "lack of appetite", "muscle spasms"],
+    type: "green"
+  },
+  {
+    question: "Pick a medical issues you need help with?",
+    choice0: "Nausea",
+    choice1: "Pain",
+    choice2: "Stress",
+    choice3: "Spasticity",
+    tags: ["Nausea", "Pain", "Stress", "Spasticity"],
+    type: "green"
+  },
+  {
+    question: "What side effect would you like to avoid?",
+    choice0: "Anxious",
+    choice1: "Dizzy",
+    choice2: "Dry Eyes",
+    choice3: "Dry Mouth",
+    tags: ["anxious", "dizzy", "dry eyes", "dry mouth"],
+    type: "red"
+  },
+  {
+    question: "What side effect would you like to avoid?",
+    choice0: "Paranoid",
+    choice1: "Dry Eyes",
+    choice2: "Dry Mouth",
+    choice3: "Dizzy",
+    tags: ["paranoid", "dry eyes", "dry mouth", "dizzy"],
+    type: "red"
   }
 ];
 
@@ -120,6 +300,7 @@ getNewQuestion = () => {
     const allChoice = document.getElementsByClassName("choice-prefix");
     const allChoiceCont = document.getElementsByClassName("choice-container");
     bodyTag[0].style.backgroundImage = 'url("img/general.svg")';
+    bodyTag[0].style.backgroundSize = "20%";
     bodyTag[0].style.backgroundRepeat = "no-repeat";
     bodyTag[0].style.backgroundPosition = "right bottom";
 
@@ -132,6 +313,8 @@ getNewQuestion = () => {
     var allChoice = document.getElementsByClassName("choice-prefix");
     var allChoiceCont = document.getElementsByClassName("choice-container");
     bodyTag[0].style.backgroundImage = 'url("img/sideeffects.svg")';
+    bodyTag[0].style.backgroundSize = "20%";
+
     bodyTag[0].style.backgroundRepeat = "no-repeat";
     bodyTag[0].style.backgroundPosition = "right bottom";
 
@@ -144,6 +327,8 @@ getNewQuestion = () => {
     var allChoice = document.getElementsByClassName("choice-prefix");
     var allChoiceCont = document.getElementsByClassName("choice-container");
     bodyTag[0].style.backgroundImage = 'url("img/health.svg")';
+    bodyTag[0].style.backgroundSize = "20%";
+
     bodyTag[0].style.backgroundRepeat = "no-repeat";
     bodyTag[0].style.backgroundPosition = "right bottom";
     for (let i = 0; i < allChoice.length; i++) {

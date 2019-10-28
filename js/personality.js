@@ -263,6 +263,51 @@ let questions = [
     choice3: "Dizzy",
     tags: ["paranoid", "dry eyes", "dry mouth", "dizzy"],
     type: "red"
+  },
+  {
+    question: "Pick a flavor you would like?",
+    choice0: "Ammonia",
+    choice1: "Berry",
+    choice2: "Cheese",
+    choice3: "Woody",
+    tags: ["ammonia", "berry", "cheese", "woody"],
+    type: "blue"
+  },
+  {
+    question: "Pick a flavor you would like?",
+    choice0: "Citrus",
+    choice1: "Coffee",
+    choice2: "Diesel",
+    choice3: "Earthy",
+    tags: ["citrus", "coffee", "diesel", "earthy"],
+    type: "blue"
+  },
+  {
+    question: "Pick a flavor you would like?",
+    choice0: "Flowery",
+    choice1: "Grape",
+    choice2: "GrapeFruit",
+    choice3: "Honey",
+    tags: ["flowery", "grape", "grapeFruit", "honey"],
+    type: "blue"
+  },
+  {
+    question: "Pick a flavor you would like?",
+    choice0: "Lemon",
+    choice1: "Menthol",
+    choice2: "Pine",
+    choice3: "Pungent",
+    tags: ["lemon", "menthol", "pine", "pungent"],
+    type: "blue"
+  },
+  {
+    question: "Pick a flavor you would like?",
+    choice0: "Skunk",
+    choice1: "Spicy/Herbal",
+    choice2: "Sweet",
+    choice3: "Tropical",
+    tags: ["skunk", "spicy/herbal", "sweet", "tropical"],
+    type: "blue"
   }
 ];
 
@@ -335,6 +380,20 @@ getNewQuestion = () => {
       allChoice[i].style.backgroundColor = "#5CDB95";
 
       allChoiceCont[i].style.border = "0.1rem solid rgba(92, 219, 149, 0.25)";
+    }
+  }
+  if (currentQuestion.type == "blue") {
+    var allChoice = document.getElementsByClassName("choice-prefix");
+    var allChoiceCont = document.getElementsByClassName("choice-container");
+    bodyTag[0].style.backgroundImage = 'url("img/flavor.svg")';
+    bodyTag[0].style.backgroundSize = "20%";
+
+    bodyTag[0].style.backgroundRepeat = "no-repeat";
+    bodyTag[0].style.backgroundPosition = "right bottom";
+    for (let i = 0; i < allChoice.length; i++) {
+      allChoice[i].style.backgroundColor = "#536dfe";
+
+      allChoiceCont[i].style.border = "0.1rem solid rgba(83, 109, 254, 0.25)";
     }
   }
 };

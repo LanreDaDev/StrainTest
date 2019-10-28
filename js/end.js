@@ -129,14 +129,22 @@ window.addEventListener("load", () => {
 
         // Negative Effects
 
-        var negEffectList = "<div>";
+        if (data.negative.length != 0) {
+          var negEffectList = "<div>";
 
-        data.negative.forEach(function(effects) {
-          negEffectList += "<a href=''>" + effects + "</a>";
-        });
+          data.negative.forEach(function(effects) {
+            negEffectList += "<a href=''>" + effects + "</a>";
+          });
+          negEffectList += "</div>";
+          sideEffects.innerHTML = negEffectList;
+        } else {
+          var negEffectList = "<p>";
 
-        negEffectList += "</div>";
-        sideEffects.innerHTML = negEffectList;
+          negEffectList += "No side effects found.";
+
+          negEffectList += "</p>";
+          sideEffects.innerHTML = negEffectList;
+        }
       }
     };
 
@@ -255,14 +263,22 @@ window.addEventListener("load", () => {
 
           // Negative Effects
 
-          var negEffectList = "<div>";
+          if (data.negative.length != 0) {
+            var negEffectList = "<div>";
 
-          data.negative.forEach(function(effects) {
-            negEffectList += "<a href=''>" + effects + "</a>";
-          });
+            data.negative.forEach(function(effects) {
+              negEffectList += "<a href=''>" + effects + "</a>";
+            });
+            negEffectList += "</div>";
+            sideEffects.innerHTML = negEffectList;
+          } else {
+            var negEffectList = "<p>";
 
-          negEffectList += "</div>";
-          sideEffects.innerHTML = negEffectList;
+            negEffectList += "No side effects found.";
+
+            negEffectList += "</p>";
+            sideEffects.innerHTML = negEffectList;
+          }
         }
       };
 
@@ -380,14 +396,22 @@ window.addEventListener("load", () => {
 
           // Negative Effects
 
-          var negEffectList = "<div>";
+          if (data.negative.length != 0) {
+            var negEffectList = "<div>";
 
-          data.negative.forEach(function(effects) {
-            negEffectList += "<a href=''>" + effects + "</a>";
-          });
+            data.negative.forEach(function(effects) {
+              negEffectList += "<a href=''>" + effects + "</a>";
+            });
+            negEffectList += "</div>";
+            sideEffects.innerHTML = negEffectList;
+          } else {
+            var negEffectList = "<p>";
 
-          negEffectList += "</div>";
-          sideEffects.innerHTML = negEffectList;
+            negEffectList += "No side effects found.";
+
+            negEffectList += "</p>";
+            sideEffects.innerHTML = negEffectList;
+          }
         }
       };
 

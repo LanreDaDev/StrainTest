@@ -110,7 +110,7 @@ window.addEventListener("load", () => {
         var posEffectList = "<div>";
 
         data.positive.forEach(function(effects) {
-          posEffectList += "<a href=''>" + effects + "</a>";
+          posEffectList += "<a>" + effects + "</a>";
         });
 
         posEffectList += "</div>";
@@ -121,7 +121,7 @@ window.addEventListener("load", () => {
         var medEffectList = "<div>";
 
         data.medical.forEach(function(effects) {
-          medEffectList += "<a href=''>" + effects + "</a>";
+          medEffectList += "<a>" + effects + "</a>";
         });
 
         medEffectList += "</div>";
@@ -133,7 +133,7 @@ window.addEventListener("load", () => {
           var negEffectList = "<div>";
 
           data.negative.forEach(function(effects) {
-            negEffectList += "<a href=''>" + effects + "</a>";
+            negEffectList += "<a>" + effects + "</a>";
           });
           negEffectList += "</div>";
           sideEffects.innerHTML = negEffectList;
@@ -166,7 +166,7 @@ window.addEventListener("load", () => {
         var flavorList = "<div>";
 
         data.forEach(function(effects) {
-          flavorList += "<a href=''>" + effects + "</a>";
+          flavorList += "<a>" + effects + "</a>";
         });
 
         flavorList += "</div>";
@@ -244,7 +244,7 @@ window.addEventListener("load", () => {
           var posEffectList = "<div>";
 
           data.positive.forEach(function(effects) {
-            posEffectList += "<a href=''>" + effects + "</a>";
+            posEffectList += "<a>" + effects + "</a>";
           });
 
           posEffectList += "</div>";
@@ -255,7 +255,7 @@ window.addEventListener("load", () => {
           var medEffectList = "<li>";
 
           data.medical.forEach(function(effects) {
-            medEffectList += "<a href=''>" + effects + "</li>";
+            medEffectList += "<a>" + effects + "</li>";
           });
 
           medEffectList += "</div>";
@@ -267,7 +267,7 @@ window.addEventListener("load", () => {
             var negEffectList = "<div>";
 
             data.negative.forEach(function(effects) {
-              negEffectList += "<a href=''>" + effects + "</a>";
+              negEffectList += "<a>" + effects + "</a>";
             });
             negEffectList += "</div>";
             sideEffects.innerHTML = negEffectList;
@@ -300,7 +300,7 @@ window.addEventListener("load", () => {
           var flavorList = "<div>";
 
           data.forEach(function(effects) {
-            flavorList += "<a href=''>" + effects + "</a>";
+            flavorList += "<a>" + effects + "</a>";
           });
 
           flavorList += "</div>";
@@ -377,7 +377,7 @@ window.addEventListener("load", () => {
           var posEffectList = "<div>";
 
           data.positive.forEach(function(effects) {
-            posEffectList += "<a href=''>" + effects + "</a>";
+            posEffectList += "<a>" + effects + "</a>";
           });
 
           posEffectList += "</div>";
@@ -388,7 +388,7 @@ window.addEventListener("load", () => {
           var medEffectList = "<div>";
 
           data.medical.forEach(function(effects) {
-            medEffectList += "<a href=''>" + effects + "</a>";
+            medEffectList += "<a>" + effects + "</a>";
           });
 
           medEffectList += "</div>";
@@ -400,7 +400,7 @@ window.addEventListener("load", () => {
             var negEffectList = "<div>";
 
             data.negative.forEach(function(effects) {
-              negEffectList += "<a href=''>" + effects + "</a>";
+              negEffectList += "<a>" + effects + "</a>";
             });
             negEffectList += "</div>";
             sideEffects.innerHTML = negEffectList;
@@ -433,7 +433,7 @@ window.addEventListener("load", () => {
           var flavorList = "<div>";
 
           data.forEach(function(effects) {
-            flavorList += "<a href=''>" + effects + "</a>";
+            flavorList += "<a>" + effects + "</a>";
           });
 
           flavorList += "</div>";

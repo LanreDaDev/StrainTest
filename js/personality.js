@@ -1,6 +1,11 @@
 // Store the question id in a const
 const question = document.getElementById("question");
 
+const progressText = document.getElementById('progressText');
+const progressBar = document.getElementById('progressBar');
+
+const progressBarFull = document.getElementById("progressBarFull");
+
 // Store the choices id in a const
 const choices = Array.from(document.getElementsByClassName("choice-text"));
 const bodyTag = document.getElementsByTagName("body");
@@ -18,176 +23,210 @@ let availableQuesions = [];
 let strains = [
   {
     name: "God's Green Crack",
-    pointCounter: 0
+    pointCounter: 0,
+    link: "https://bud365.ca/product/gods-green-crack-2/?ref=Stingre"
   },
 
   {
     name: "Pre-98 Bubba Kush",
-    pointCounter: 0
+    pointCounter: 0,
+    link: "https://bud365.ca/product/pre-98-bubba-2/?ref=Stingre"
   },
   {
     name: "Platinum OG",
-    pointCounter: 0
+    pointCounter: 0,
+    link: "https://bud365.ca/product/platinum-og/?ref=Stingre"
   },
   {
     name: "Romulan",
-    pointCounter: 0
+    pointCounter: 0,
+    link: "https://bud365.ca/product/romulan/?ref=Stingre"
   },
   {
     name: "MK Ultra",
-    pointCounter: 0
+    pointCounter: 0,
+    link: "https://bud365.ca/product/mk-ultra-3/?ref=Stingre"
   },
   {
     name: "Super Sour Diesel",
-    pointCounter: 0
+    pointCounter: 0,
+    link: "https://www.speedgreens.ca/product/super-sour-diesel-smalls-aaa/?ref=stingring7"
   },
   {
     name: "Alien OG",
-    pointCounter: 0
+    pointCounter: 0,
+    link: "https://www.speedgreens.ca/product/alien-og-aaaa/?ref=stingring7"
   },
   {
     name: "Ice Wreck",
-    pointCounter: 0
+    pointCounter: 0,
+    link: "https://www.speedgreens.ca/product/ice-wreck-aaa/"
   },
   {
     name: "Nuken",
-    pointCounter: 0
+    pointCounter: 0,
+    link: "https://www.speedgreens.ca/product/nuken-aaa/?ref=stingring7"
   },
-  {
-    name: "Scooby Snacks",
-    pointCounter: 0
-  },
-  {
-    name: "Tuna Kush",
-    pointCounter: 0
-  },
-  {
-    name: "Wedding Cake",
-    pointCounter: 0
-  },
-  {
-    name: "Pine Tar Kush",
-    pointCounter: 0
-  },
-  {
-    name: "Violator Kush",
-    pointCounter: 0
-  },
-  {
-    name: "Black Diamond",
-    pointCounter: 0
-  },
-  {
-    name: "Bruce Banner",
-    pointCounter: 0
-  },
-  {
-    name: "Nebula",
-    pointCounter: 0
-  },
+  // {
+  //   name: "Scooby Snacks",
+  //   pointCounter: 0,
+  //   link: ""
+  // },
+  // {
+  //   name: "Tuna Kush",
+  //   pointCounter: 0
+  // },
+  // {
+  //   name: "Wedding Cake",
+  //   pointCounter: 0
+  // },
+  // {
+  //   name: "Pine Tar Kush",
+  //   pointCounter: 0
+  // },
+  // {
+  //   name: "Violator Kush",
+  //   pointCounter: 0
+  // },
+  // {
+  //   name: "Black Diamond",
+  //   pointCounter: 0
+  // },
+  // {
+  //   name: "Bruce Banner",
+  //   pointCounter: 0
+  // },
+  // {
+  //   name: "Nebula",
+  //   pointCounter: 0
+  // },
   {
     name: "Astroboy",
-    pointCounter: 0
+    pointCounter: 0,
+    link: "https://peak420.ca/product/astroboy/?ref=Stingre"
   },
   {
     name: "Gelato",
-    pointCounter: 0
+    pointCounter: 0,
+    link: "https://peak420.ca/product/gelato-2/?ref=Stingre"
   },
   {
     name: "Purple Kush",
-    pointCounter: 0
+    pointCounter: 0,
+    link: "https://peak420.ca/product/purple-kush-3/?ref=Stingre"
   },
   {
     name: "Rockstar",
-    pointCounter: 0
+    pointCounter: 0,
+    link: "https://peak420.ca/product/rockstar-3/?ref=Stingre"
   },
   {
     name: "Moby Dick",
-    pointCounter: 0
+    pointCounter: 0,
+    link: "https://peak420.ca/product/moby-dick-2/?ref=Stingre"
   },
   {
     name: "El Jefe",
-    pointCounter: 0
+    pointCounter: 0,
+    link: "https://peak420.ca/product/el-jefe/?ref=Stingre"
   },
   {
     name: "Chocolate OG",
-    pointCounter: 0
+    pointCounter: 0,
+    link: "https://buymyweedonline.ca/product/chocolate-og-aaaaa/ref/Stingre/"
   },
   {
     name: "Kushberry",
-    pointCounter: 0
+    pointCounter: 0,
+    link: "https://buymyweedonline.ca/product/kushberry-aaa/ref/Stingre/"
   },
   {
     name: "Black Widow",
-    pointCounter: 0
+    pointCounter: 0,
+    link: "https://www.greensociety.ca/product/black-widow-by-mr-nice-seeds/?ref=Stingre"
   },
-  {
-    name: "Casey Jones",
-    pointCounter: 0
-  },
+  // {
+  //   name: "Casey Jones",
+  //   pointCounter: 0
+  // },
   {
     name: "Crystal Coma",
-    pointCounter: 0
+    pointCounter: 0,
+    link: "https://www.greensociety.ca/product/crystal-coma-by-elephantos/?ref=Stingre"
   },
   {
     name: "Bubba OG",
-    pointCounter: 0
+    pointCounter: 0,
+    link: "https://www.greensociety.ca/product/bubba-og-by-norstar/?ref=Stingre"
   },
   {
     name: "Northern Lights",
-    pointCounter: 0
+    pointCounter: 0,
+    link: "https://www.greensociety.ca/product/northern-lights-sampler/?ref=Stingre"
   },
   {
     name: "Jack the Ripper",
-    pointCounter: 0
+    pointCounter: 0,
+    link: "https://www.greensociety.ca/product/jack-the-ripper-by-tga-subcool/"
   },
-  {
-    name: "Alaskan Thunder Fuck",
-    pointCounter: 0
-  },
+  // {
+  //   name: "Alaskan Thunder Fuck",
+  //   pointCounter: 0
+  // },
   {
     name: "Angel OG",
-    pointCounter: 0
+    pointCounter: 0,
+    link: "https://weedsmart.ca/product/angel-og/?ref=Stingre"
   },
   {
     name: "Black Bubba",
-    pointCounter: 0
+    pointCounter: 0,
+    link: "https://weedsmart.ca/product/black-bubba-aaaa-in/?ref=Stingre"
   },
   {
     name: "Animal Cookies",
-    pointCounter: 0
+    pointCounter: 0,
+    link: "https://weedsmart.ca/product/animal-cookies-aaaaa-hy/?ref=Stingre"
   },
   {
     name: "Black Tuna",
-    pointCounter: 0
+    pointCounter: 0,
+    link: "https://weedsmart.ca/product/black-tuna/?ref=Stingre"
   },
   {
     name: "Alice in Wonderland",
-    pointCounter: 0
+    pointCounter: 0,
+    link: "https://weedsmart.ca/product/alice-in-wonderland/?ref=Stingre"
   },
   {
     name: "Hawaiian Punch",
-    pointCounter: 0
+    pointCounter: 0,
+    link: "https://weedsmart.ca/product/orange-cookies/?ref=Stingr"
   },
   {
     name: "Lemon Cake",
-    pointCounter: 0
+    pointCounter: 0,
+    link: "https://www.westcoastsupply.ca/product/lemon-cake/?ref=54"
   },
   {
     name: "King Kong",
-    pointCounter: 0
+    pointCounter: 0,
+    link: "https://www.westcoastsupply.ca/product/king-kong/"
   },
   {
     name: "Atomic Northern Lights",
-    pointCounter: 0
+    pointCounter: 0,
+    link: "https://www.westcoastsupply.ca/product/king-kong/?ref=54"
   },
   {
     name: "Fire OG",
-    pointCounter: 0
+    pointCounter: 0,
+    link: "https://www.westcoastsupply.ca/product/fire-og/?ref=54"
   },
   {
     name: "Larry OG",
-    pointCounter: 0
+    pointCounter: 0,
+    link: "https://www.westcoastsupply.ca/product/larry-og/?ref=54"
   }
 ];
 let questions = [
@@ -311,7 +350,7 @@ let questions = [
   }
 ];
 
-const MAX_QUESTIONS = question.length;
+const MAX_QUESTIONS = questions.length;
 
 startGame = () => {
   questionCounter = 0;
@@ -331,6 +370,12 @@ getNewQuestion = () => {
   currentQuestion = availableQuesions[questionIndex];
   question.innerText = currentQuestion.question;
 
+  
+progressText.innerText = 'Question ' + questionCounter + "/" + MAX_QUESTIONS;
+// Update the Progress Bar
+
+progressBarFull.style.width = (questionCounter / MAX_QUESTIONS ) * 100 + '%';
+
   choices.forEach(choice => {
     const number = choice.dataset["number"];
     choice.innerText = currentQuestion["choice" + number];
@@ -348,6 +393,8 @@ getNewQuestion = () => {
     bodyTag[0].style.backgroundSize = "20%";
     bodyTag[0].style.backgroundRepeat = "no-repeat";
     bodyTag[0].style.backgroundPosition = "right bottom";
+    progressBarFull.style.backgroundColor = "#FFD700";
+    progressBar.style.border = "0.3rem solid #FFD700"
 
     for (let i = 0; i < allChoice.length; i++) {
       allChoice[i].style.backgroundColor = "#FFD700";
@@ -362,6 +409,10 @@ getNewQuestion = () => {
 
     bodyTag[0].style.backgroundRepeat = "no-repeat";
     bodyTag[0].style.backgroundPosition = "right bottom";
+    progressBarFull.style.backgroundColor = "#FF4845";
+    progressBar.style.border = "0.3rem solid #FF4845"
+
+
 
     for (let i = 0; i < allChoice.length; i++) {
       allChoice[i].style.backgroundColor = "#FF4845";
@@ -373,9 +424,13 @@ getNewQuestion = () => {
     var allChoiceCont = document.getElementsByClassName("choice-container");
     bodyTag[0].style.backgroundImage = 'url("img/health.svg")';
     bodyTag[0].style.backgroundSize = "20%";
-
     bodyTag[0].style.backgroundRepeat = "no-repeat";
     bodyTag[0].style.backgroundPosition = "right bottom";
+    progressBarFull.style.backgroundColor = "#5CDB95";
+    progressBar.style.border = "0.3rem solid #5CDB95"
+
+
+
     for (let i = 0; i < allChoice.length; i++) {
       allChoice[i].style.backgroundColor = "#5CDB95";
 
@@ -390,6 +445,11 @@ getNewQuestion = () => {
 
     bodyTag[0].style.backgroundRepeat = "no-repeat";
     bodyTag[0].style.backgroundPosition = "right bottom";
+    progressBarFull.style.backgroundColor = "#536dfe";
+    progressBar.style.border = "0.3rem solid #536dfe"
+
+
+
     for (let i = 0; i < allChoice.length; i++) {
       allChoice[i].style.backgroundColor = "#536dfe";
 

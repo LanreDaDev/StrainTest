@@ -1,0 +1,36 @@
+/* HUD */
+
+#hud{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .hud-prefix{
+    text-align: center;
+    font-size: 2rem;
+  }
+  .hud-main-text{
+    text-align: center;
+  }
+
+  #progressBar{
+    width: 20rem;
+    height: 4rem;
+    border: 0.3rem solid #56a4eb;
+    margin-top: 1.5rem;
+  }
+  #progressBarFull{
+    height: 3.4rem;
+    background-color: #56a4eb;
+    width: 0%;
+  }
+
+
+
+
+
+
+
+

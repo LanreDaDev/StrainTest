@@ -1,5 +1,5 @@
 # Strain Test
-
+ Take the Quiz Here [Weed Strain QUiz](weedstrainquiz.netlify.com)
 Web Business Essentials Class _Weed Strain Quiz_
 
 With the on going legalization of weed in developed countries. We are seeing more strains with higher thc and cbd percentages. These days Indica and Sativa don't really mean much because most strains have some mixture of both. Take our Weed Strain Quiz to get the exact strain that would be ideal for your particular need.
